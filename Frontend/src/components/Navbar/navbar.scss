@@ -1,0 +1,38 @@
+$navbg: rgb(0, 0, 0);
+$textcolor:white;
+
+.navcontainer {
+  height: 80px;
+  background: $navbg;
+  color: $textcolor;
+
+  .navlogo {
+    float: left;
+  }
+
+  .navlinks {
+    float: right;
+    display: flex;
+    margin-right: 30px;
+
+    .navlink {
+      margin: 0px 10px 0px 10px;
+      list-style: none;
+      font-size: 20px;
+
+      :hover {
+        color: red;
+      }
+
+      a {
+        text-decoration: none;
+        color: $textcolor;
+
+        
+      }
+    }
+  }
+
+
+
+}
