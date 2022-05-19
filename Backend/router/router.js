@@ -3,6 +3,6 @@ const router = express.Router();
 
 const GeneratorController = require('../controller/GeneratorMaster')
 
-router.post('/GeneratorEntry',GeneratorController.GeneratorEntry)
+router.post('/generatorentry',GeneratorController.GeneratorEntry)
 
 module.exports= router

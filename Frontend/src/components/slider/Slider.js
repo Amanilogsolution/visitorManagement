@@ -23,7 +23,7 @@ function Slider({ slider, openSidebar }) {
                 </div>
                 <div className="bottomdiv">
                     <ul className="listitems">
-                        <li className="listitem"> <i class="fa-solid fa-house-chimney"></i>Home</li>
+                        <li className="listitem"> <i className="fa-solid fa-house-chimney"></i>Home</li>
                         <li className="listitem">Visitor Entry</li>
                         <li className="listitem outerlist" onClick={togglediv} >LogBook 
                         {show ?<span  id="innerspan" style={{fontSize:"23px",transform:"rotate(180deg)"}}> &nbsp;&#94;</span> 
