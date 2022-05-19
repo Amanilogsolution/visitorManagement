@@ -6,3 +6,16 @@ body{
 }
 code{
   font-family: Roboto,source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;}
+
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

@@ -1,21 +1,18 @@
-import './diesellog.scss'
-import Navbar from '../Navbar/Navbar';
-import Slider from '../slider/Slider';
+import './generatorlog.scss'
 import Home from '../Home';
-const DieselLog = () => {
+const GeneratorLog = () => {
     return (
         <>
-            <div className="diesellogcontainer">
+            <div className="generatorlogcontainer">
            
                 <Home />
 
                 <div>
-                    {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
-                    <div className="col-md-6 mt-5" style={{ margin: "auto" }}>
-                        <div className="card">
+                    <div className="row justify-content-center mt-5" style={{width:"100%"}}>
+                    <div className="col-md-6 " style={{ margin: "50px auto 0px auto"}}>
+                        <div className="card" >
                             <header className="card-header">
-
-                                <h4 className="card-title mt-2">Diesel Log Entry</h4>
+                                <h4 className="card-title mt-2">Generator Log Book Entry</h4>
                             </header>
 
 
@@ -27,13 +24,13 @@ const DieselLog = () => {
                                             <input type="Date" className="form-control" placeholder=""/>
                                         </div> {/* form-group end.// */}
                                         <div className="form-group">
-                                            <label>Invoice no.</label>
-                                            <input type="text" className="form-control" placeholder=" " />
+                                            <label>Start Time</label>
+                                            <input type="time" className="form-control" placeholder=" " />
                                         </div> 
                                    
                                     <div className="form-group">
-                                        <label>Party Name</label>
-                                        <input type="text" className="form-control" placeholder="" />
+                                        <label>Start Reading</label>
+                                        <input type="number" className="form-control" placeholder="" />
                                     </div> {/* form-group end.// */}
                                    
                                     {/* <div className="form-row">
@@ -53,42 +50,25 @@ const DieselLog = () => {
                                             </select>
                                         </div> 
                                     </div> form-row.// */}
-                                    <div className="form-row">
-                                    <div className="col form-group">
-                                        <label>Qty in Liter</label>
-                                        <input className="form-control" type="number" />
-                                    </div> 
-                                    <div className="col form-group">
-                                        <label>Rate per Liter</label>
-                                        <input className="form-control" type="number" />
-                                    </div> 
-                                    </div>
+                                    
                                     <div className="form-group">
-                                        <label>Total Amount</label>
-                                        <input className="form-control" type="number" />
+                                        <label>End Time</label>
+                                        <input className="form-control" type="time" />
                                     </div> 
                                     <div className="form-group">
-                                        <label>Person Name</label>
-                                        <input className="form-control" type="text" />
+                                        <label>End Reading</label>
+                                        <input className="form-control" type="number" />
                                     </div> 
 
-                                    <div className="form-row">
-                                    <div className="col form-group">
-                                        <label>Out Time</label>
-                                        <input className="form-control" type="datetime-local" />
-                                    </div> 
-                                    <div className="col form-group">
-                                        <label>In Time</label>
-                                        <input className="form-control" type="datetime-local" />
-                                    </div> 
-                                    </div>
+                                  
                                     <div className="form-group">
-                                        <button type="submit" className="btn btn-primary "> Register</button>
+                                        <button type="submit" className="btn btn-primary "> Submit</button>
                                     </div> {/* form-group// */}
                                 </form>
                             </article> {/* card-body end .// */}
 
 
+                        </div>
                         </div>
 
                     </div></div></div>
@@ -97,4 +77,4 @@ const DieselLog = () => {
     )
 }
 
-export default DieselLog;
+export default GeneratorLog;

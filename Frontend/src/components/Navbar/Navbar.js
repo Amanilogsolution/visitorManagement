@@ -22,7 +22,7 @@ function Navbar({ openSidebar }) {
                     {
                             show ? 
                       <ul className='innernavlinks'>
-                          <li className="innernavlink"><a href="#">Generator LogBook</a></li>
+                          <li className="innernavlink"><a href="/GeneratorLogBook">Generator LogBook</a></li>
                           <li className="innernavlink"><a href="/DieselLog">Diesel LogBook</a></li>
                           <li className="innernavlink">Warehouse Open/Close LogBook</li>
                       </ul>

@@ -30,9 +30,9 @@ function Slider({ slider, openSidebar }) {
                         :  < span  id="innerspan" style={{ fontSize: "23px" }}> &nbsp;&#94;</span>}
                         {show ?
                             <ul className="innerlistes">
-                                <li className="innerliste">Generator LogBook</li>
-                                <li className="innerliste">Desiel LogBook</li>
-                                <li className="innerliste">Warehouse Open/Close LogBook</li>
+                                <li className="innerliste"><a href="/GeneratorLogBook">Generator LogBook</a></li>
+                                <li className="innerliste"><a href="/DieselLog">Desiel LogBook</a></li>
+                                <li className="innerliste"><a href="#">Warehouse Open/Close LogBook</a></li>
                             </ul>
                             : null
                         }
