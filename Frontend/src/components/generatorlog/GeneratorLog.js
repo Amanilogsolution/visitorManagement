@@ -1,22 +1,27 @@
 import './generatorlog.scss'
 import Home from '../Home';
+import {GeneratorEntry} from '../../api/index'
 
 function GeneratorLog (){
 
-    const handlesave =(e)=>{
-        e.preventdefault();
+    const handleClick = async(e)=>{
+        e.preventDefault();
+       
        const date =document.getElementById('date').value;
        const starttime =document.getElementById('starttime').value;
        const startreading =document.getElementById('startreading').value;
        const endtime =document.getElementById('endtime').value;
        const endreading =document.getElementById('endreading').value;
 
-       console.log(date,starttime,startreading,endtime,endreading);
+       const result = await GeneratorEntry(date,starttime,startreading,endtime,endreading)
+       console.log(result)
+
+      
     }
+
     return (
         <>
             <div className="generatorlogcontainer">
-
                 <Home />
 
                 <div>
@@ -73,7 +78,8 @@ function GeneratorLog (){
 
 
                                         <div className="form-group">
-                                            <button className="btn btn-primary " onClick={handlesave}> Submit</button>
+                                            <button className="btn btn-primary " onClick={handleClick}> Submit</button>
+                                        
                                         </div> {/* form-group// */}
                                     </form>
                                 </article> {/* card-body end .// */}
