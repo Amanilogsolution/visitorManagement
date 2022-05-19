@@ -1,14 +1,18 @@
 
-import Home from './components/Home'
+import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/Login/Login'
-import {Route,BrowserRouter as Router} from 'react-router-dom'
+import DieselLog from './components/diesellog/DieselLog';
+import {Route,Routes,BrowserRouter as Router} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
      {/* <Home /> */}
      <Router>
-         <Route exact path="/" component={Home}/>
-         <Route exact path="/Dashboard" component={Home}/>
+     <Routes>
+         <Route exact path="/" element={<Login />}/>
+         <Route exact path="/Dashboard" element={<Dashboard/>}/>
+         <Route exact path="/DieselLog" element={<DieselLog/>}/>
+     </Routes>
      </Router>
 
     </div>
