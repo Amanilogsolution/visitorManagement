@@ -18,17 +18,17 @@ function Navbar({ openSidebar }) {
                             <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item navlink ">
-                            <a className="nav-link" href="#">Link</a>
+                            <a className="nav-link" href="#">Visitor Entry</a>
                         </li>
                         <li className="nav-item dropdown navlink">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Dropdown
+                            LogBook
                             </a>
                             <div className="dropdown-menu ml-5 " aria-labelledby="navbarDropdown">
-                                <a className="dropdown-item text-dark" href="#">Action</a>
-                                <a className="dropdown-item text-dark" href="#">Another action</a>
-                                <div className="dropdown-divider" />
-                                <a className="dropdown-item text-dark" href="#">Something else here</a>
+                                <a className="dropdown-item text-dark" href="/GeneratorLogBook">Generator LogBook</a>
+                                <a className="dropdown-item text-dark" href="/DieselLog">Diesel LogBook</a>
+                                {/* <div className="dropdown-divider" /> */}
+                                <a className="dropdown-item text-dark" href="#">Warehouse Open/Close LogBook</a>
                             </div>
                         </li>
                        
