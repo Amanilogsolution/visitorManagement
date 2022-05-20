@@ -2,7 +2,7 @@ import React from 'react'
 import Home from '../Home';
 
 
-function Closewarehouse() {
+function Closewarehouse(prop) {
     return (
         <>
             <div className="diesellogcontainer">
@@ -14,6 +14,7 @@ function Closewarehouse() {
                             <header className="card-header">
 
                                 <h4 className="card-title mt-2">Warehouse Closing Entry</h4>
+                                <h4 className="card-title mt-2">{prop.date}</h4>
                             </header>
 
 
@@ -22,7 +23,7 @@ function Closewarehouse() {
 
                                     <div className="form-group">
                                         <label>Date </label>
-                                        <input type="Date" className="form-control" placeholder="" disabled style={{cursor:"not-allowed"}}/>
+                                        <input type="Date" className="form-control" placeholder="" disabled style={{cursor:"not-allowed"}} value={prop.date}/>
                                     </div> 
                                     {/* <div className="form-group">
                                         <label>Opening Time</label>
@@ -55,7 +56,7 @@ function Closewarehouse() {
 
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-primary mr-4">Submit</button>
-                                        <button type="submit" className="btn btn-secondary ">Reset</button>
+                                        <input type="reset" className="btn btn-secondary " value='Reset'/>
 
                                     </div> {/* form-group// */}
                                 </form>

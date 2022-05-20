@@ -1,17 +1,41 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Home from '../Home';
 import Openwarehouse from './Openwarehouse';
 import Closewarehouse from './Closewarehouse';
+import { Warehousecheckopen } from '../../api/index';
 
 
 function Warehouse() {
-    const [warehouse,setWarehouse] =useState(true);
+    const [warehouse, setWarehouse] = useState(false);
+    const [date ,setDate] =useState();
+
+
+
+
+
+    useEffect(() => {
+        async function fetchMyAPI() {
+            const result = await Warehousecheckopen(localStorage.getItem('warehouseId'))
+             console.log('result',(result.recordset.length) > 0)
+            if ((result.recordset.length) > 0) {
+                console.log(result)
+            // const dates= result;
+            // console.log('dates',dates)
+            //     setDate(dates)
+            //     setWarehouse(true);
+            }
+        }
+
+        fetchMyAPI()
+
+    }, [])
+
     return (
         <>
-            <div className="diesellogcontainer">
+            <div className="warehousecontainer">
                 <Home />
                 {
-                    warehouse?<Closewarehouse/>:<Openwarehouse/>
+                    warehouse ? <Closewarehouse date={date} /> : <Openwarehouse />
                 }
 
                 {/* <div>

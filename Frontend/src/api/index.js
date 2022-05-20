@@ -22,3 +22,23 @@ export const UserLogin = async (uid_id,uid_pass) => {
     const url = `http://localhost:8004/api/loginuser`
     return axios.post(url, {uid_id,uid_pass}).then(response => response.data).catch(error => console.log(error));
 }
+
+export const Warehousecheckopen = async (Warehouse) =>{
+    console.log("API",Warehouse)
+    const url = `http://localhost:8004/api/warehousecheckopen`
+    return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
+}
+
+
+
+export const Warehouseopen = async (entry_by,wharehouse,date,opening_time,opened_by,awl_person_open) =>{
+    console.log("API",entry_by,wharehouse,date,opening_time,opened_by,awl_person_open)
+    const url = `http://localhost:8004/api/warehouseopen`
+    return axios.post(url,{entry_by,wharehouse,date,opening_time,opened_by,awl_person_open}).then(response => response.data).catch(error => console.log(error));
+}
+
+export const Warehouseclose = async (closing_time,closed_by,awl_person_close,wharehouse) =>{
+    console.log("API",closing_time,closed_by,awl_person_close,wharehouse)
+    const url = `http://localhost:8004/api/warehouseclose`
+    return axios.post(url,{closing_time,closed_by,awl_person_close,wharehouse}).then(response => response.data).catch(error => console.log(error));
+}

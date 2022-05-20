@@ -1,8 +1,25 @@
 import React from 'react'
 import Home from '../Home';
+import {Warehouseopen} from '../../api/index'
 
 
 function Openwarehouse() {
+
+    const handlesave = async (e)=>{
+        e.preventDefault();
+        const entry_by= localStorage.getItem('userId');
+        const wharehouse= localStorage.getItem('warehouseId');
+        const date= document.getElementById('date').value;
+        const opening_time= document.getElementById('Openingtime').value;
+        const opened_by= document.getElementById('Openby').value;
+        const awl_person_open= document.getElementById('awlpersonopen').value;
+
+        console.log("date,Openingtime,Openby,awlperson",date,opening_time,opened_by,awl_person_open)
+
+        const result = await Warehouseopen(entry_by,wharehouse,date,opening_time,opened_by,awl_person_open)
+        console.log("result",result)
+
+    }
     return (
         <>
             <div className="openwarehousecontainer">
@@ -23,7 +40,7 @@ function Openwarehouse() {
 
                                     <div className="form-group">
                                         <label>Date </label>
-                                        <input type="Date" className="form-control" placeholder="" />
+                                        <input type="Date" className="form-control" placeholder="" id='date' />
                                     </div> {/* form-group end.// */}
                                     <div className="form-group">
                                         <label>Opening Time</label>
@@ -49,14 +66,14 @@ function Openwarehouse() {
 
                                     <div className="form-group">
                                         <label>AWL Person Present</label>
-                                        <input className="form-control" type="text" id="awlperson" />
+                                        <input className="form-control" type="text" id="awlpersonopen" />
                                     </div>
 
 
 
                                     <div className="form-group">
-                                        <button type="submit" className="btn btn-primary mr-4">Submit</button>
-                                        <button type="submit" className="btn btn-secondary ">Reset</button>
+                                        <button type="submit" className="btn btn-primary mr-4" onClick={handlesave}>Submit</button>
+                                        <input type="reset" className="btn btn-secondary " value='Reset'/>
 
                                     </div> {/* form-group// */}
                                 </form>
