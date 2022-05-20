@@ -1,26 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Home from '../Home';
-import Openwarehouse from './Openwarehouse';
-import Closewarehouse from './Closewarehouse';
 
 
-function Warehouse() {
-    const [warehouse,setWarehouse] =useState(true);
+function Closewarehouse() {
     return (
         <>
             <div className="diesellogcontainer">
-                <Home />
-                {
-                    warehouse?<Closewarehouse/>:<Openwarehouse/>
-                }
-
-                {/* <div>
-                    {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> 
+                {/* <Home /> */}
+                <div>
+                    {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
                         <div className="card">
                             <header className="card-header">
 
-                                <h4 className="card-title mt-2">Warehouse Opening & Closing Entry</h4>
+                                <h4 className="card-title mt-2">Warehouse Closing Entry</h4>
                             </header>
 
 
@@ -29,22 +22,22 @@ function Warehouse() {
 
                                     <div className="form-group">
                                         <label>Date </label>
-                                        <input type="Date" className="form-control" placeholder="" />
+                                        <input type="Date" className="form-control" placeholder="" disabled style={{cursor:"not-allowed"}}/>
                                     </div> 
-                                    <div className="form-group">
+                                    {/* <div className="form-group">
                                         <label>Opening Time</label>
                                         <input type="time" className="form-control" id="Openingtime" />
-                                    </div>
+                                    </div> */}
 
                                     <div className="form-group">
                                         <label>Closing Time</label>
                                         <input type="time" className="form-control" id="Closingtime" />
                                     </div>
 
-                                    <div className="form-group">
+                                    {/* <div className="form-group">
                                         <label>Open by</label>
                                         <input type="text" className="form-control" id="Openby" />
-                                    </div>
+                                    </div> */}
 
                                     <div className="form-group">
                                         <label>Close by</label>
@@ -64,17 +57,16 @@ function Warehouse() {
                                         <button type="submit" className="btn btn-primary mr-4">Submit</button>
                                         <button type="submit" className="btn btn-secondary ">Reset</button>
 
-                                    </div> 
+                                    </div> {/* form-group// */}
                                 </form>
                             </article> 
 
 
                         </div>
 
-                    </div></div> */}
-            </div>
+                    </div></div></div>
         </>
     )
 }
 
-export default Warehouse
+export default Closewarehouse
