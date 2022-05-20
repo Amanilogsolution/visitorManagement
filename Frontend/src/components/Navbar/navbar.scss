@@ -8,8 +8,8 @@ $textcolor:white;
   position: relative;
 
   .navlogo {
-    position: absolute;
-    left: 20px;
+    // position: absolute;
+    // left: 20px;
     height: 80%;
 
     img {
@@ -18,11 +18,9 @@ $textcolor:white;
   }
 
   .navlinks {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+  
     display: flex;
-    margin: 20px 30px 0px 0px;
+    margin: 0px 200px 0px 20px;
 
 
     .navlink {
@@ -86,7 +84,7 @@ $textcolor:white;
     }
 
     .sliderbar {
-      display: none;
+      // display: none;
       margin-top: 10%;
     }
   }
@@ -115,7 +113,9 @@ $textcolor:white;
 
       .sliderbar {
         display: flex;
-        margin-top: 10%;
+        // margin-top: 10%;
+        color: black;
+        border: 2px solid red;
       }
     }
 
