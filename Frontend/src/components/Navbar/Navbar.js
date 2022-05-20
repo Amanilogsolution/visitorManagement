@@ -18,7 +18,7 @@ function Navbar({ openSidebar }) {
                             <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
                         </li>
                         <li className="nav-item navlink ">
-                            <a className="nav-link" href="#">Visitor Entry</a>
+                            <a className="nav-link" href="VisitorLogBook">Visitor Entry</a>
                         </li>
                         <li className="nav-item dropdown navlink">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -28,14 +28,14 @@ function Navbar({ openSidebar }) {
                                 <a className="dropdown-item text-dark" href="/GeneratorLogBook">Generator LogBook</a>
                                 <a className="dropdown-item text-dark" href="/DieselLog">Diesel LogBook</a>
                                 {/* <div className="dropdown-divider" /> */}
-                                <a className="dropdown-item text-dark" href="#">Warehouse Open/Close LogBook</a>
+                                <a className="dropdown-item text-dark" href="Warehouse">Warehouse Open/Close LogBook</a>
                             </div>
                         </li>
                        
                     </ul>
                     <ul className="profilediv">
                     <li className="profilelink profileimg "><img src="https://thispersondoesnotexist.com/image" /></li>
-                    {/* <li className="profilelink sliderbar" onClick={openSidebar}><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#fff"><path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" /></svg></li> */}
+                    <li className="profilelink sliderbar" onClick={openSidebar}><svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#fff"><path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z" /></svg></li>
                 </ul>
                 </div>
             </nav>

@@ -3,6 +3,8 @@ import Dashboard from './components/dashboard/Dashboard';
 import Login from './components/Login/Login'
 import DieselLog from './components/diesellog/DieselLog';
 import GeneratorLogBook from './components/generatorlog/GeneratorLog';
+import Visitor from './components/visitor/Visitor'
+import Warehouse from './components/Warehouse/Warehouse'
 import {Route,Routes,BrowserRouter as Router} from 'react-router-dom'
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
          <Route exact path="/Dashboard" element={<Dashboard/>}/>
          <Route exact path="/DieselLog" element={<DieselLog/>}/>
          <Route exact path="/GeneratorLogBook" element={<GeneratorLogBook/>}/>
+         <Route exact path="/VisitorLogBook" element={<Visitor/>}/>
+         <Route exact path="/Warehouse" element={<Warehouse/>}/>
+
      </Routes>
      </Router>
 

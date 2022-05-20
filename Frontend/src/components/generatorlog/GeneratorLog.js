@@ -1,4 +1,5 @@
 import './generatorlog.scss'
+import React from 'react'
 import Home from '../Home';
 import {GeneratorEntry} from '../../api/index'
 
@@ -14,9 +15,7 @@ function GeneratorLog (){
        const endreading =document.getElementById('endreading').value;
 
        const result = await GeneratorEntry(date,starttime,startreading,endtime,endreading)
-       console.log(result)
-
-      
+       console.log(result) 
     }
 
     return (
@@ -25,8 +24,8 @@ function GeneratorLog (){
                 <Home />
 
                 <div>
-                    <div className="row justify-content-center mt-5" style={{ width: "100%" }}>
-                        <div className="col-md-6 " style={{ margin: "50px auto 0px auto" }}>
+                    {/* <div className="row justify-content-center mt-2 mb-5" style={{ width: "100%" }}> */}
+                    <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
                             <div className="card" >
                                 <header className="card-header">
                                     <h4 className="card-title mt-2">Generator Log Book Entry</h4>
@@ -75,20 +74,17 @@ function GeneratorLog (){
                                             <label>End Reading</label>
                                             <input className="form-control" type="number" placeholder="Reading" id='endreading'/>
                                         </div>
-
-
                                         <div className="form-group">
-                                            <button className="btn btn-primary " onClick={handleClick}> Submit</button>
-                                        
-                                        </div> {/* form-group// */}
+                                        <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
+                                        <input type="reset" className="btn btn-secondary " value='Reset'/>                                    
+                                        </div> 
                                     </form>
-                                </article> {/* card-body end .// */}
-
-
+                                </article>
                             </div>
                         </div>
 
-                    </div></div></div>
+                    </div></div>
+                    {/* </div> */}
             {/* </div> */}
         </>
     )

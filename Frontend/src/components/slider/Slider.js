@@ -39,7 +39,7 @@ function Slider({ slider, openSidebar }) {
                     </li>
                 </ul>
                 <ul className="bottomlists">
-                    <li className="bottomlist"> Logout</li>
+                    <a href="/"><li className="bottomlist"> Logout</li></a>
                     <li className="bottomlist arrow" onClick={openSidebar}> <span>&#10146;</span>
                     </li>
                 </ul>

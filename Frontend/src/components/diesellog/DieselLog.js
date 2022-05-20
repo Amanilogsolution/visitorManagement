@@ -1,17 +1,32 @@
 import './diesellog.scss'
-import Navbar from '../Navbar/Navbar';
-import Slider from '../slider/Slider';
 import Home from '../Home';
+import {DieselEntry} from '../../api/index'
 const DieselLog = () => {
+    const handleClick = async(e)=>{
+        e.preventDefault();
+       
+       const DATE =document.getElementById('date').value;
+       const invoice_no =document.getElementById('invoice_no').value;
+       const party_name =document.getElementById('party_name').value;
+       const qtyin_liter =document.getElementById('qtyin_liter').value;
+       const rate_per_liter =document.getElementById('rate_per_liter').value;
+       const person_name =document.getElementById('person_name').value;
+       const out_time =document.getElementById('out_time').value;
+       const in_time =document.getElementById('in_time').value;
+       const TotalAmount =document.getElementById('TotalAmount').value;
+       console.log(DATE,invoice_no,party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,TotalAmount)
+
+
+       const result = await DieselEntry(DATE,invoice_no,party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,TotalAmount)
+       console.log(result) 
+    }
     return (
         <>
             <div className="diesellogcontainer">
-           
                 <Home />
-
                 <div>
                     {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
-                    <div className="col-md-6 mt-5" style={{ margin: "auto" }}>
+                    <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
                         <div className="card">
                             <header className="card-header">
 
@@ -24,67 +39,50 @@ const DieselLog = () => {
                                     
                                         <div className="form-group">
                                             <label>Date </label>
-                                            <input type="Date" className="form-control" placeholder=""/>
+                                            <input type="Date" className="form-control" id="date"/>
                                         </div> {/* form-group end.// */}
                                         <div className="form-group">
                                             <label>Invoice no.</label>
-                                            <input type="text" className="form-control" placeholder=" " />
+                                            <input type="text" className="form-control" id="invoice_no" />
                                         </div> 
                                    
                                     <div className="form-group">
                                         <label>Party Name</label>
-                                        <input type="text" className="form-control" placeholder="" />
+                                        <input type="text" className="form-control" placeholder="" id="party_name" />
                                     </div> {/* form-group end.// */}
-                                   
-                                    {/* <div className="form-row">
-                                        <div className="form-group col-md-6">
-                                            <label>City</label>
-                                            <input type="text" className="form-control" />
-                                        </div> 
-                                        <div className="form-group col-md-6">
-                                            <label>Country</label>
-                                            <select id="inputState" className="form-control">
-                                                <option> Choose...</option>
-                                                <option>Uzbekistan</option>
-                                                <option>Russia</option>
-                                                <option selected>United States</option>
-                                                <option>India</option>
-                                                <option>Afganistan</option>
-                                            </select>
-                                        </div> 
-                                    </div> form-row.// */}
+                            
                                     <div className="form-row">
                                     <div className="col form-group">
                                         <label>Qty in Liter</label>
-                                        <input className="form-control" type="number" />
+                                        <input className="form-control" type="number" id="qtyin_liter"/>
                                     </div> 
                                     <div className="col form-group">
                                         <label>Rate per Liter</label>
-                                        <input className="form-control" type="number" />
+                                        <input className="form-control" type="number" id="rate_per_liter"/>
                                     </div> 
                                     </div>
                                     <div className="form-group">
                                         <label>Total Amount</label>
-                                        <input className="form-control" type="number" />
+                                        <input className="form-control" type="number" id="TotalAmount"/>
                                     </div> 
                                     <div className="form-group">
                                         <label>Person Name</label>
-                                        <input className="form-control" type="text" />
+                                        <input className="form-control" type="text" id="person_name"/>
                                     </div> 
 
                                     <div className="form-row">
                                     <div className="col form-group">
                                         <label>Out Time</label>
-                                        <input className="form-control" type="datetime-local" />
+                                        <input className="form-control" type="time" id="out_time"/>
                                     </div> 
                                     <div className="col form-group">
                                         <label>In Time</label>
-                                        <input className="form-control" type="datetime-local" />
+                                        <input className="form-control" type="time" id="in_time"/>
                                     </div> 
                                     </div>
                                     <div className="form-group">
-                                        <button type="submit" className="btn btn-primary "> Register</button>
-                                    </div> {/* form-group// */}
+                                    <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
+                                        <input type="reset" className="btn btn-secondary " value='Reset'/>                                                                           </div> {/* form-group// */}
                                 </form>
                             </article> {/* card-body end .// */}
 
