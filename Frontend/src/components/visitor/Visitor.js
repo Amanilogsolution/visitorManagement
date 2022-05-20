@@ -17,7 +17,9 @@ function Visitor() {
        console.log(visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark)
 
        const result = await VisiterEntry(visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark)
-       console.log(result) 
+       if(result){
+        window.location.href='/Dashboard';
+       }
     }
   return (
     <>

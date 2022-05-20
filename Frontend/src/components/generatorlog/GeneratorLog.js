@@ -15,7 +15,9 @@ function GeneratorLog (){
        const endreading =document.getElementById('endreading').value;
 
        const result = await GeneratorEntry(date,starttime,startreading,endtime,endreading)
-       console.log(result) 
+       if(result){
+        window.location.href='/Dashboard';
+       }
     }
 
     return (

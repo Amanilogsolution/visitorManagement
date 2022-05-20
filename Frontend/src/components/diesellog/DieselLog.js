@@ -14,11 +14,11 @@ const DieselLog = () => {
        const out_time =document.getElementById('out_time').value;
        const in_time =document.getElementById('in_time').value;
        const TotalAmount =document.getElementById('TotalAmount').value;
-       console.log(DATE,invoice_no,party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,TotalAmount)
-
 
        const result = await DieselEntry(DATE,invoice_no,party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,TotalAmount)
-       console.log(result) 
+       if(result){
+        window.location.href='/Dashboard';
+       }
     }
     return (
         <>

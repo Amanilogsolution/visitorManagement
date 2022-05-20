@@ -1,7 +1,24 @@
 import './login.scss'
+import React from 'react'
 import Icon from '../../images/security-guard.png'
+import {UserLogin} from '../../api/index'
 
 function Login() {
+    const handleClick = async(e) =>{
+        e.preventDefault();
+        const username = document.getElementById('username').value
+        const password = document.getElementById('password').value
+        console.log(username,password)
+        const result = await UserLogin(username, password)
+        if(result){
+            localStorage.setItem('userId',result.uid_id)
+            localStorage.setItem('userName',result.uname)
+            localStorage.setItem('Warehouse',result.wh)
+            localStorage.setItem('warehouseId',result.whid)
+            window.location.href='/Dashboard';
+        }
+        
+    }
     return (
         <>
             <div className="logincontainer">
@@ -20,13 +37,13 @@ function Login() {
                                         <div className="input-group-append">
                                             <span className="input-group-text"><i className="fas fa-user" /></span>
                                         </div>
-                                        <input type="text" name className="form-control input_user"  placeholder="username" />
+                                        <input type="text" name className="form-control input_user" id="username"  placeholder="username" />
                                     </div>
                                     <div className="input-group mb-2">
                                         <div className="input-group-append">
                                             <span className="input-group-text"><i className="fas fa-key" /></span>
                                         </div>
-                                        <input type="password" name className="form-control input_pass" placeholder="password" />
+                                        <input type="password" name className="form-control input_pass" id="password" placeholder="password" />
                                     </div>
                                     {/* <div className="form-group">
                                         <div className="custom-control custom-checkbox">
@@ -34,8 +51,9 @@ function Login() {
                                             <label className="custom-control-label" htmlFor="customControlInline">Remember me</label>
                                         </div>
                                     </div> */}
-                                    <div className="d-flex justify-content-center mt-3 login_container"><a href='Dashboard' className="btn login_btn" >
-                                        Login</a>
+                                    <div className="d-flex justify-content-center mt-3 login_container">
+                                    <button type="button" onClick={handleClick} className="btn login_btn">Login</button>
+
                                     </div>
                                 </form>
                             </div>
