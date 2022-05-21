@@ -25,9 +25,10 @@ const handleClick = async(e)=>{
                 <div>
                     {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
+                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Open</span></h2>
+
                         <div className="card">
                             <header className="card-header">
-
                                 <h4 className="card-title mt-2">Enter Warehouse Closing Entry</h4>
                             </header>
 

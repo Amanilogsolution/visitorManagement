@@ -23,6 +23,7 @@ function Openwarehouse() {
             <div className="openwarehousecontainer">
                 <div>
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
+                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Close</span></h2>
                         <div className="card">
                             <header className="card-header">
                                 <h4 className="card-title mt-2">Enter Warehouse Opening Entry</h4>

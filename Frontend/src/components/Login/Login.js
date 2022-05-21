@@ -1,23 +1,23 @@
 import './login.scss'
 import React from 'react'
 import Icon from '../../images/security-guard.png'
-import {UserLogin} from '../../api/index'
+import { UserLogin } from '../../api/index'
 
 function Login() {
-    const handleClick = async(e) =>{
+    const handleClick = async (e) => {
         e.preventDefault();
         const username = document.getElementById('username').value
         const password = document.getElementById('password').value
-        console.log(username,password)
+        console.log(username, password)
         const result = await UserLogin(username, password)
-        if(result){
-            localStorage.setItem('userId',result.uid_id)
-            localStorage.setItem('userName',result.uname)
-            localStorage.setItem('Warehouse',result.wh)
-            localStorage.setItem('warehouseId',result.whid)
-            window.location.href='/Dashboard';
+        if (result) {
+            localStorage.setItem('userId', result.uid_id)
+            localStorage.setItem('userName', result.uname)
+            localStorage.setItem('Warehouse', result.wh)
+            localStorage.setItem('warehouseId', result.whid)
+            window.location.href = '/Dashboard';
         }
-        
+
     }
     return (
         <>
@@ -32,12 +32,12 @@ function Login() {
                             </div>
                             <div className="d-flex justify-content-center form_container">
                                 <form>
-                                   <h4 className='text-center head'>Login</h4>
+                                    <h4 className='text-center head'>Login</h4>
                                     <div className="input-group mb-3">
                                         <div className="input-group-append">
                                             <span className="input-group-text"><i className="fas fa-user" /></span>
                                         </div>
-                                        <input type="text" name className="form-control input_user" id="username"  placeholder="username" />
+                                        <input type="text" name className="form-control input_user" id="username" placeholder="username" />
                                     </div>
                                     <div className="input-group mb-2">
                                         <div className="input-group-append">
@@ -45,24 +45,14 @@ function Login() {
                                         </div>
                                         <input type="password" name className="form-control input_pass" id="password" placeholder="password" />
                                     </div>
-                                    {/* <div className="form-group">
-                                        <div className="custom-control custom-checkbox">
-                                            <input type="checkbox" className="custom-control-input" id="customControlInline" />
-                                            <label className="custom-control-label" htmlFor="customControlInline">Remember me</label>
-                                        </div>
-                                    </div> */}
+
                                     <div className="d-flex justify-content-center mt-3 login_container">
-                                    <button type="button" onClick={handleClick} className="btn login_btn">Login</button>
+                                        <button type="button" onClick={handleClick} className="btn login_btn">Login</button>
 
                                     </div>
                                 </form>
                             </div>
-                            {/* <div className="mt-4">
-                                
-                                <div className="d-flex justify-content-center links">
-                                    <a href="#">Forgot your password?</a>
-                                </div>
-                            </div> */}
+
                         </div>
                     </div>
                 </div>

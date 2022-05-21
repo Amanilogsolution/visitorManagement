@@ -1,22 +1,22 @@
-$bgcolor:#000;
-$textcolor:#fff;
-$topdivbg:gray;
+$bgcolor:rgb(232, 237, 237);
+$textcolor:#000;
+$topdivbg:rgb(210, 242, 255);
 
 .slidercontainer {
     height: 90%;
     width: 350px;
     background: $bgcolor;
     color: $textcolor;
+    border: 1px solid black;
     position: absolute;
     top: 0%;
     transform: translateX(-100%);
     transition: all 0.6s linear;
-    z-index:1000000;
+    z-index: 1000000;
 
     .closebox {
         height: 200px;
         font-size: 30px;
-        // border: 2px solid white;
         background: $topdivbg;
         position: relative;
 
@@ -33,12 +33,13 @@ $topdivbg:gray;
             top: 50%;
             transform: translateY(-50%);
             width: 100%;
+            color: #000;
 
             .name {
                 margin: 0;
             }
 
-            .email {
+            .warehouse {
                 margin: 0;
             }
 
@@ -71,16 +72,13 @@ $topdivbg:gray;
         height: 445px;
         margin-top: 60px;
         width: 100%;
-        // border: 2px solid red;
 
         .listitems {
-            // border: 2px solid green;
             margin: 0%;
             padding: 0;
 
 
             .listitem {
-                // border: 2px solid yellow;
                 list-style: none;
                 height: 50px;
                 display: flex;
@@ -92,9 +90,9 @@ $topdivbg:gray;
                 cursor: pointer;
 
                 &:hover {
-                    background: $topdivbg;
-                    // color: red;
+                    background: #fff;
                 }
+             
 
             }
 
@@ -103,7 +101,6 @@ $topdivbg:gray;
 
                 .innerlistes {
                     height: 120px;
-                    // border: 2px solid pink;
                     position: absolute;
                     top: 100%;
                     padding: 15px;
@@ -113,14 +110,15 @@ $topdivbg:gray;
 
                     .innerliste {
                         height: 40px;
-                        // border: 2px solid red;
                         list-style: none;
                         border-radius: 20px;
                         padding: 0px 10px 0px 10px;
                         display: flex;
                         align-items: center;
 
-
+                        a{
+                            text-decoration: none;
+                        }
 
                         &:hover {
                             background: $topdivbg;
@@ -140,13 +138,11 @@ $topdivbg:gray;
             .bottomlist {
                 list-style: none;
                 height: 30px;
-                // border: 2px solid red;
                 font-size: 19px;
                 padding: 0px 0px 0px 30px;
             }
 
             .arrow {
-                transform: rotate(180deg);
                 height: 40px;
                 padding: 0;
                 color: #000;
@@ -154,10 +150,7 @@ $topdivbg:gray;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-
-                span {
-                    font-size: 40px;
-                }
+                cursor: pointer;   
             }
         }
     }
@@ -172,16 +165,16 @@ $topdivbg:gray;
     width: 350px;
     background: $bgcolor;
     color: $textcolor;
+    border: 1px solid black;
     position: absolute;
     top: 0%;
-    z-index:1000000;
+    z-index: 1000000;
     transform: translateX(0%);
     transition: all 0.6s linear;
 
     .closebox {
         height: 200px;
         font-size: 30px;
-        // border: 2px solid white;
         background: $topdivbg;
         position: relative;
 
@@ -198,12 +191,14 @@ $topdivbg:gray;
             top: 50%;
             transform: translateY(-50%);
             width: 100%;
+            color: #000;
+
 
             .name {
                 margin: 0;
             }
 
-            .email {
+            .warehouse {
                 margin: 0;
             }
 
@@ -236,16 +231,13 @@ $topdivbg:gray;
         height: 445px;
         margin-top: 60px;
         width: 100%;
-        // border: 2px solid red;
 
         .listitems {
-            // border: 2px solid green;
             margin: 0%;
             padding: 0;
 
 
             .listitem {
-                // border: 2px solid yellow;
                 list-style: none;
                 height: 50px;
                 display: flex;
@@ -257,10 +249,13 @@ $topdivbg:gray;
                 cursor: pointer;
 
                 &:hover {
-                    background: $topdivbg;
-                    // color: red;
+                    background: #fff;
                 }
-
+                a{
+                    text-decoration: none;
+                    color:$textcolor;
+                    
+                                    }
             }
 
             .outerlist {
@@ -268,7 +263,6 @@ $topdivbg:gray;
 
                 .innerlistes {
                     height: 120px;
-                    // border: 2px solid pink;
                     position: absolute;
                     top: 100%;
                     padding: 15px;
@@ -278,17 +272,19 @@ $topdivbg:gray;
 
                     .innerliste {
                         height: 40px;
-                        // border: 2px solid red;
                         list-style: none;
                         border-radius: 20px;
                         padding: 0px 10px 0px 10px;
                         display: flex;
                         align-items: center;
 
+                        a{
+                            text-decoration: none;
+                        }
 
 
                         &:hover {
-                            background: $topdivbg;
+                            background: #fff;
                         }
                     }
                 }
@@ -305,13 +301,11 @@ $topdivbg:gray;
             .bottomlist {
                 list-style: none;
                 height: 30px;
-                // border: 2px solid red;
                 font-size: 19px;
                 padding: 0px 0px 0px 30px;
             }
 
             .arrow {
-                transform: rotate(180deg);
                 height: 40px;
                 padding: 0;
                 color: #000;
@@ -319,10 +313,10 @@ $topdivbg:gray;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                cursor: pointer;
 
-                span {
-                    font-size: 40px;
-                }
+
+               
             }
         }
     }
@@ -334,8 +328,8 @@ $topdivbg:gray;
 
 
 @media screen and (max-width:350px) {
-    
-    .slidercontaineropen{
+
+    .slidercontaineropen {
         width: 100%;
     }
 }
