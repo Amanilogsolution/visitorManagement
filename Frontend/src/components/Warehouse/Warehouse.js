@@ -16,13 +16,16 @@ function Warehouse() {
     useEffect(() => {
         async function fetchMyAPI() {
             const result = await Warehousecheckopen(localStorage.getItem('warehouseId'))
-             console.log('result',(result.recordset.length) > 0)
+             console.log('result',result.recordset[0].date )
+             console.log('result',result )
+        
+
             if ((result.recordset.length) > 0) {
-                console.log(result)
+            //     console.log(result.recordset)
             // const dates= result;
             // console.log('dates',dates)
-            //     setDate(dates)
-            //     setWarehouse(true);
+                // setDate(dates)
+                // setWarehouse(true);
             }
         }
 

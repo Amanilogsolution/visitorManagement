@@ -7,7 +7,7 @@ const Warehousecheckopen = async (req, res) => {
 
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query(`SELECT convert(varchar(15),date,121) from tbl_whopeningclosinglogbook_t where wharehouse='${Warehouse}' and msg_flag='open';`)
+        const result = await sql.query(`SELECT convert(varchar(15),date,120) from tbl_whopeningclosinglogbook_t where wharehouse='${Warehouse}' and msg_flag='open';`)
           console.log(result)
         res.send(result)
     }
