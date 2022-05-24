@@ -5,6 +5,7 @@ import Select from "react-select";
 
 function Visitor() {
     const [selectdata, setSelectdata] = useState([]);
+    const [mandatoryfield, setMandatoryfield] = useState(false);
     let option = selectdata.map((ele) => {
         return { value: ele.uName, label: ele.uName };
     })
@@ -33,10 +34,14 @@ function Visitor() {
         const remark = document.getElementById('remark').value;
 
         console.log(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
-
-        const result = await VisiterEntry(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
-        if (result) {
-            window.location.href = '/Dashboard';
+        if (!visitor_name || !company_name || !no_of_visitor || !meeting_with || !contact_no) {
+            setMandatoryfield(true)
+        }
+        else {
+            const result = await VisiterEntry(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+            if (result) {
+                window.location.href = '/Dashboard';
+            }
         }
     }
     return (
@@ -89,7 +94,7 @@ function Visitor() {
                                             className="basic-multi-select"
                                             classNamePrefix="select"
                                         />
-                                        <br/>
+                                        <br />
                                         <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' />
                                     </div>
                                     <div className="form-group">
@@ -97,6 +102,10 @@ function Visitor() {
                                         <textarea className="form-control" type="text" id='remark' />
                                     </div>
 
+                                    {
+                                        mandatoryfield
+                                            ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
+                                    }
                                     <div className="form-group">
                                         <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
                                         <button type="submit" className="btn btn-secondary ">Reset</button>
