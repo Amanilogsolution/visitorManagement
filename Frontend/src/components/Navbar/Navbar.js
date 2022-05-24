@@ -1,7 +1,7 @@
 import './navbar.scss';
-import Profile from "../../images/security-guard.png"
 import Logo from "../../images/logo.png"
-import react, { useState } from 'react'
+import Warehouselogo from '../../images/warehouse.png'
+import React from 'react'
 function Navbar({ openSidebar }) {
 
     const handlelogout = () => {
@@ -36,7 +36,9 @@ function Navbar({ openSidebar }) {
 
                     </ul>
                     <ul className="profilediv">
-                        <li className="profilelink" onClick={handlelogout} > Logout
+                       <li className="warehouseplace" ><span className='staricon'><img src={Warehouselogo}/></span> {localStorage.getItem("Warehouse")}</li>&nbsp;
+                        <li className="profilelink" onClick={handlelogout} > 
+                        Logout
                         </li>
                     </ul>
                 </div>

@@ -25,7 +25,6 @@ const DieselLog = () => {
             <div className="diesellogcontainer">
                 <Home />
                 <div>
-                    {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
                         <div className="card">
                             <header className="card-header">

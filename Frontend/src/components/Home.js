@@ -1,4 +1,4 @@
-import react,{useState} from 'react';
+import React,{useState} from 'react';
 import './home.scss';
 import Navbar from './Navbar/Navbar'
 import Slider from './slider/Slider';

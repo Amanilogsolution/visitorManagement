@@ -5,6 +5,9 @@ import{Warehouseclose} from '../../api'
 
 function Closewarehouse(prop) {
 
+    const date = new Date(prop.date) 
+    let format_date = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() 
+
 const handleClick = async(e)=>{
     e.preventDefault()
     const Closingtime = document.getElementById('Closingtime').value
@@ -25,7 +28,7 @@ const handleClick = async(e)=>{
                 <div>
                     {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
-                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Open</span></h2>
+                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Opened on {format_date} </span></h2>
 
                         <div className="card">
                             <header className="card-header">

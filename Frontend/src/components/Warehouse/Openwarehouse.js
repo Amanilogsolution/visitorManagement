@@ -1,9 +1,22 @@
-import React from 'react'
-import Home from '../Home';
-import { Warehouseopen } from '../../api/index'
+import React,{useEffect,useState} from 'react'
+import { Warehouseopen,warehouseLastclose } from '../../api/index'
 
 
 function Openwarehouse() {
+
+    const [last_date,setLastDate] = useState()
+    
+
+    useEffect( () => {
+        const data = async()=>{
+            const result = await warehouseLastclose()
+            const date = new Date(result) 
+            let format_date = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() 
+            setLastDate(format_date)
+            }
+            data()
+    },[])
+
     const handlesave = async (e) => {
         e.preventDefault();
         const entry_by = localStorage.getItem('userId');
@@ -23,7 +36,7 @@ function Openwarehouse() {
             <div className="openwarehousecontainer">
                 <div>
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
-                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Close</span></h2>
+                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Closed on {last_date}</span></h2>
                         <div className="card">
                             <header className="card-header">
                                 <h4 className="card-title mt-2">Enter Warehouse Opening Entry</h4>

@@ -15,6 +15,9 @@ router.post('/loginuser',LoginController.UserLogin)
 router.post('/warehousecheckopen',WarehouseController.Warehousecheckopen)
 router.post('/warehouseopen',WarehouseController.Warehouseopen)
 router.post('/warehouseclose',WarehouseController.Warehouseclose)
+router.get('/warehouseLastclose',WarehouseController.WarehouseLastclose)
 
+
+router.post('/allemployee',VisiterController.Allemployee)
 
 module.exports= router

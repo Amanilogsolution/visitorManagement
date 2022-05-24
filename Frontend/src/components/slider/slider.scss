@@ -326,8 +326,21 @@ $topdivbg:rgb(210, 242, 255);
 
 }
 
+@media screen and (max-width:400px) {
+
+    .slidercontaineropen {
+        width: 330px;
+    }
+}
+
 
 @media screen and (max-width:350px) {
+
+    .slidercontaineropen {
+        width: 300px;
+    }
+}
+@media screen and (max-width:300px) {
 
     .slidercontaineropen {
         width: 100%;

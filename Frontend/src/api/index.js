@@ -13,6 +13,10 @@ export const VisiterEntry = async (visitor_name,company_name,email_id,no_of_visi
     const url = `http://localhost:8004/api/visiterentry`
     return axios.post(url, {visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark}).then(response => response.data).catch(error => console.log(error));
 }
+export const Allemployee = async (Warehouse) =>{
+    const url = `http://localhost:8004/api/allemployee`
+    return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
+}
 
 export const UserLogin = async (uid_id,uid_pass) => {
     const url = `http://localhost:8004/api/loginuser`
@@ -32,4 +36,9 @@ export const Warehouseopen = async (entry_by,wharehouse,date,opening_time,opened
 export const Warehouseclose = async (date,closing_time,closed_by,awl_person_close,wharehouse) =>{
     const url = `http://localhost:8004/api/warehouseclose`
     return axios.post(url,{date,closing_time,closed_by,awl_person_close,wharehouse}).then(response => response.data).catch(error => console.log(error));
+}
+
+export const warehouseLastclose = async () =>{
+    const url = `http://localhost:8004/api/warehouseLastclose`
+    return axios.get(url).then(response => response.data).catch(error => console.log(error));
 }

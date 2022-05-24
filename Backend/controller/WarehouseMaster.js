@@ -60,4 +60,16 @@ const Warehouseclose = async (req, res) => {
         res.send(err)
     }
 }
-module.exports = { Warehousecheckopen, Warehouseopen,Warehouseclose }
+
+const WarehouseLastclose = async (req, res) => {
+    try {
+        await sql.connect(sqlConfig)
+        const result = await sql.query(`select top 1 * from tbl_whopeningclosinglogbook_t order by sno desc`)       
+        res.send(result.recordset[0].date)
+    }
+    catch (err) {
+        res.send(err)
+    }
+}
+
+module.exports = { Warehousecheckopen, Warehouseopen,Warehouseclose,WarehouseLastclose }

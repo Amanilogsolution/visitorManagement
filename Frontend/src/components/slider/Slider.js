@@ -1,11 +1,10 @@
 import './slider.scss';
-import react, { useState } from 'react';
+import React, { useState } from 'react';
 import Icon from '../../images/security-guard.png';
 import Desiel from '../../images/deisel.png';
 import Generator from '../../images/generator.png';
 import Warehouselogo from '../../images/warehouse.png';
 import Logbook from '../../images/logbook.png';
-import Hii from '../../images/hii.png';
 function Slider({ slider, openSidebar }) {
     const [show, setShow] = useState(false)
 
@@ -25,12 +24,12 @@ function Slider({ slider, openSidebar }) {
                         <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000"><path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z" /></svg></span>
                     <div className="userdetail">
                         <p className="name">
-                        <img src={Hii} style={{ height: "50px", width: "50px" }} />&nbsp;
+                      
                         {localStorage.getItem("userName")}</p>
                         <p className="warehouse">{localStorage.getItem("Warehouse")}</p>
                     </div>
                     <div className="imgdiv">
-                        <img src={Icon} />
+                        <img src={Icon} alt="Icon" />
                     </div>
                 </div>
                 <div className="bottomdiv">
@@ -45,19 +44,19 @@ function Slider({ slider, openSidebar }) {
                         </svg>&nbsp;
                             <a href="VisitorLogBook">Visitor Entry</a></li>
                         <li className="listitem outerlist" onClick={togglediv} >
-                        <img src={Logbook} style={{ height: "16px", width: "16px" }} />&nbsp;
+                        <img src={Logbook} style={{ height: "16px", width: "16px" }} alt="LogBook"/>&nbsp;
                         LogBook
                             <span id="innerspan" style={{ fontSize: "23px", transform: "rotate(180deg)" }}> &nbsp;&#94;</span>
                             {show ?
                                 <ul className="innerlistes">
                                     <a href="/GeneratorLogBook"><li className="innerliste">
-                                        <img src={Generator} style={{ height: "16px", width: "16px" }} />&nbsp;
+                                        <img src={Generator} style={{ height: "16px", width: "16px" }} alt="Generator" />&nbsp;
                                         Generator LogBook</li></a>
                                     <a href="/DieselLog"> <li className="innerliste" style={{ width: "100%" }}>
-                                        <img src={Desiel} style={{ height: "16px", width: "16px" }} />&nbsp;
+                                        <img src={Desiel} style={{ height: "16px", width: "16px" }} alt="Diesel"/>&nbsp;
                                         Desiel LogBook</li></a>
                                     <a href="Warehouse"><li className="innerliste">
-                                        <img src={Warehouselogo} style={{ height: "16px", width: "16px" }} />&nbsp;
+                                        <img src={Warehouselogo} style={{ height: "16px", width: "16px" }} alt="Wharehouselogo" />&nbsp;
                                         Warehouse LogBook</li></a>
                                 </ul>
                                 : null
