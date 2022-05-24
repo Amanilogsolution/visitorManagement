@@ -16,5 +16,7 @@ router.post('/warehousecheckopen',WarehouseController.Warehousecheckopen)
 router.post('/warehouseopen',WarehouseController.Warehouseopen)
 router.post('/warehouseclose',WarehouseController.Warehouseclose)
 
+router.post('/allemployee',VisiterController.Allemployee)
+
 
 module.exports= router

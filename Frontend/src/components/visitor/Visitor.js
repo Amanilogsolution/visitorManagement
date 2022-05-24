@@ -1,8 +1,24 @@
-import React from 'react';
+import React,{useEffect, useState} from 'react';
 import Home from '../Home';
-import {VisiterEntry} from '../../api/index'
+import {VisiterEntry,Allemployee} from '../../api/index'
 
 function Visitor() {
+    const [selectdata,setSelectdata] = useState([]);
+
+
+    useEffect(() => {
+        async function fetchMyAPI() {
+            const result = await Allemployee(localStorage.getItem("Warehouse"));
+            // console.log(result)
+             setSelectdata(result)
+             console.log(selectdata)
+     
+        }  
+
+        fetchMyAPI()
+
+    }, [])
+
     const handleClick = async(e)=>{
         e.preventDefault();
        

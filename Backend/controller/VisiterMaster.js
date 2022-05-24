@@ -24,4 +24,20 @@ const VisiterEntry = async (req, res) => {
         }
 }
 
-module.exports ={VisiterEntry}
+
+const Allemployee = async (req, res) => {
+     const Warehouse = req.body.Warehouse;
+    //  console.log(Warehouse)
+
+    try{
+        await sql.connect(sqlConfig)
+        const result = await sql.query(`select uName from User_Rights WHERE uWH='${Warehouse}'`)
+        console.log(result.recordset);
+        res.send(result.recordset)
+    }
+    catch(err){
+        res.send(err)
+        }
+}
+
+module.exports ={VisiterEntry,Allemployee}

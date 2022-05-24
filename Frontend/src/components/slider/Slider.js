@@ -5,7 +5,6 @@ import Desiel from '../../images/deisel.png';
 import Generator from '../../images/generator.png';
 import Warehouselogo from '../../images/warehouse.png';
 import Logbook from '../../images/logbook.png';
-import Hii from '../../images/hii.png';
 function Slider({ slider, openSidebar }) {
     const [show, setShow] = useState(false)
 
@@ -25,7 +24,7 @@ function Slider({ slider, openSidebar }) {
                         <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000"><path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z" /></svg></span>
                     <div className="userdetail">
                         <p className="name">
-                        <img src={Hii} style={{ height: "50px", width: "50px" }} />&nbsp;
+                      
                         {localStorage.getItem("userName")}</p>
                         <p className="warehouse">{localStorage.getItem("Warehouse")}</p>
                     </div>

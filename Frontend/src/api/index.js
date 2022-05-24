@@ -16,6 +16,10 @@ export const VisiterEntry = async (visitor_name,company_name,email_id,no_of_visi
     const url = `http://localhost:8004/api/visiterentry`
     return axios.post(url, {visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark}).then(response => response.data).catch(error => console.log(error));
 }
+export const Allemployee = async (Warehouse) =>{
+    const url = `http://localhost:8004/api/allemployee`
+    return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
+}
 
 export const UserLogin = async (uid_id,uid_pass) => {
     console.log(uid_id,uid_pass)
