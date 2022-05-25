@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../Home';
 import { VisiterEntry, Allemployee } from '../../api/index'
-import Select from "react-select";
 
 function Visitor() {
     const [selectdata, setSelectdata] = useState([]);
@@ -37,7 +36,7 @@ function Visitor() {
             setMandatoryfield(true)
         }
         else {
-            const result = await VisiterEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+            const result = await VisiterEntry(localStorage.getItem('userName'), localStorage.getItem('warehouseId'), visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
             if (result) {
                 window.location.href = '/Dashboard';
             }
@@ -75,7 +74,9 @@ function Visitor() {
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Contact No</label>
-                                            <input type="number" className="form-control" id='contact_no' />
+                                            <input type="tel" className="form-control" id='contact_no'
+                                             maxLength={10}
+                                            />
 
                                         </div>
                                     </div>
@@ -90,25 +91,12 @@ function Visitor() {
                                         <label>To Meet</label>
                                         <select className="form-control" id='meeting_with'>
                                             <option defaultValue hidden>Choose ...</option>
-                                        {selectdata.map((ele)=>(
-                                            <option>{ele.uName}</option>
-                                        ) )}
+                                            {selectdata.map((ele) => (
+                                                <option>{ele.uName}</option>
+                                            ))}
                                         </select>
-                                        
-
-                                        {/* <Select isMulti name="colors"
-                                            options={option}
-                                            className="basic-multi-select"
-                                            classNamePrefix="select"
-<<<<<<< HEAD
-                                        /> */}
-                                        <br/>
-                                        {/* <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' /> */}
-=======
-                                        />
                                         <br />
                                         <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' />
->>>>>>> 1ea24dcc82f7616e9cf2f9bf596f56c2d483d6f5
                                     </div>
                                     <div className="form-group">
                                         <label>Remarks</label>
