@@ -84,13 +84,21 @@ function Visitor() {
 
                                     <div className="form-group">
                                         <label>To Meet</label>
-                                        <Select isMulti name="colors"
+                                        <select className="form-control" id='meeting_with'>
+                                            <option defaultValue hidden>Choose ...</option>
+                                        {selectdata.map((ele)=>(
+                                            <option>{ele.uName}</option>
+                                        ) )}
+                                        </select>
+                                        
+
+                                        {/* <Select isMulti name="colors"
                                             options={option}
                                             className="basic-multi-select"
                                             classNamePrefix="select"
-                                        />
+                                        /> */}
                                         <br/>
-                                        <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' />
+                                        {/* <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' /> */}
                                     </div>
                                     <div className="form-group">
                                         <label>Remarks</label>
