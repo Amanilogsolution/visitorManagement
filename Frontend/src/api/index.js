@@ -9,11 +9,12 @@ export const DieselEntry = async (entry_by,warehouse,DATE,invoice_no,party_name,
     const url = `http://localhost:8004/api/dieselentry`
     return axios.post(url, {entry_by,warehouse,DATE,invoice_no,party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,TotalAmount}).then(response => response.data).catch(error => console.log(error));
 }
+
 export const VisiterEntry = async (entry_by,wharehouse,visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark) => {
-    console.log(entry_by,wharehouse,visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark)
     const url = `http://localhost:8004/api/visiterentry`
     return axios.post(url, {entry_by,wharehouse,visitor_name,company_name,email_id,no_of_visitor,meeting_with,contact_no,remark}).then(response => response.data).catch(error => console.log(error));
 }
+
 export const Allemployee = async (Warehouse) =>{
     const url = `http://localhost:8004/api/allemployee`
     return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
