@@ -1,26 +1,36 @@
-import React from 'react'
-import{Warehouseclose} from '../../api'
+import React, { useState } from 'react'
+import { Warehouseclose } from '../../api'
 
 
 
 function Closewarehouse(prop) {
+    const [mandatoryfield, setMandatoryfield] = useState(false);
 
-    const date = new Date(prop.date) 
-    let format_date = date.getDate() + "/" + (date.getMonth()+1) + "/" + date.getFullYear() 
+    const date = new Date(prop.date)
+    let format_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
 
-const handleClick = async(e)=>{
-    e.preventDefault()
-    const Closingtime = document.getElementById('Closingtime').value
-    const Closeby = document.getElementById('Closeby').value
-    const awlperson = document.getElementById('awlperson').value
+    const handleClick = async (e) => {
+        e.preventDefault()
+        const Closingtime = document.getElementById('Closingtime').value
+        const Closeby = document.getElementById('Closeby').value
+        const awlperson = document.getElementById('awlperson').value
 
-    console.log(prop.date,Closingtime,Closeby,awlperson)
-    const result = await Warehouseclose(prop.date,Closingtime,Closeby,awlperson,localStorage.getItem('warehouseId'))
-    if(result){
-        window.location.href='/Dashboard';
-       }
+        if (!Closingtime || !Closeby || !awlperson) {
+            setMandatoryfield(true)
 
-}
+        } 
+        else {
+            console.log(prop.date, Closingtime, Closeby, awlperson)
+            const result = await Warehouseclose(prop.date, Closingtime, Closeby, awlperson, localStorage.getItem('warehouseId'))
+            if (result) {
+                window.location.href = '/Dashboard';
+            }
+        }
+
+
+
+
+    }
 
     return (
         <>
@@ -28,7 +38,7 @@ const handleClick = async(e)=>{
                 <div>
                     {/* <div className="row justify-content-center mt-5" style={{border:"2px solid red",width:"100%"}}> */}
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
-                    <h2 className="card-title mt-2 "style={{marginLeft:"10%"}}><span style={{color:"red"}}> Warehouse is Opened on {format_date} </span></h2>
+                        <h2 className="card-title mt-2 " style={{ marginLeft: "10%" }}><span style={{ color: "red" }}> Warehouse is Opened on {format_date} </span></h2>
 
                         <div className="card">
                             <header className="card-header">
@@ -41,9 +51,9 @@ const handleClick = async(e)=>{
 
                                     <div className="form-group">
                                         <label>Date </label>
-                                        <input type="Date" className="form-control"  disabled style={{cursor:"not-allowed"}} value={prop.date}/>
-                                    </div> 
-                                 
+                                        <input type="Date" className="form-control" disabled style={{ cursor: "not-allowed" }} value={prop.date} />
+                                    </div>
+
 
                                     <div className="form-group">
                                         <label>Closing Time</label>
@@ -60,15 +70,18 @@ const handleClick = async(e)=>{
                                         <input className="form-control" type="text" id="awlperson" />
                                     </div>
 
-
+                                    {
+                                        mandatoryfield
+                                            ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
+                                    }
 
                                     <div className="form-group">
                                         <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
-                                        <input type="reset" className="btn btn-secondary " value='Reset'/>
+                                        <input type="reset" className="btn btn-secondary " value='Reset' />
 
-                                    </div> 
+                                    </div>
                                 </form>
-                            </article> 
+                            </article>
 
 
                         </div>

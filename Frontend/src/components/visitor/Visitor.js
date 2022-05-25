@@ -5,6 +5,7 @@ import Select from "react-select";
 
 function Visitor() {
     const [selectdata, setSelectdata] = useState([]);
+    const [mandatoryfield, setMandatoryfield] = useState(false);
     let option = selectdata.map((ele) => {
         return { value: ele.uName, label: ele.uName };
     })
@@ -31,12 +32,15 @@ function Visitor() {
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
 
-        console.log(localStorage.getItem('Warehouse'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
-
-        const result = await VisiterEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
-        console.log(result)
-        if (result) {
-            window.location.href = '/Dashboard';
+        console.log(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+        if (!visitor_name || !company_name || !no_of_visitor || !meeting_with || !contact_no) {
+            setMandatoryfield(true)
+        }
+        else {
+            const result = await VisiterEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+            if (result) {
+                window.location.href = '/Dashboard';
+            }
         }
     }
     return (
@@ -96,15 +100,25 @@ function Visitor() {
                                             options={option}
                                             className="basic-multi-select"
                                             classNamePrefix="select"
+<<<<<<< HEAD
                                         /> */}
                                         <br/>
                                         {/* <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' /> */}
+=======
+                                        />
+                                        <br />
+                                        <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' />
+>>>>>>> 1ea24dcc82f7616e9cf2f9bf596f56c2d483d6f5
                                     </div>
                                     <div className="form-group">
                                         <label>Remarks</label>
                                         <textarea className="form-control" type="text" id='remark' />
                                     </div>
 
+                                    {
+                                        mandatoryfield
+                                            ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
+                                    }
                                     <div className="form-group">
                                         <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
                                         <button type="submit" className="btn btn-secondary ">Reset</button>
