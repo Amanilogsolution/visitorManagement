@@ -7,7 +7,7 @@ const Warehousecheckopen = async (req, res) => {
 
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query(`SELECT convert(varchar(15),date,121) as date from tbl_whopeningclosinglogbook_t where wharehouse='${Warehouse}' and msg_flag='open';`)
+        const result = await sql.query(`SELECT convert(varchar(15),date,121) as date from tbl_warehouselogs where warehouse='${Warehouse}' and msg_flag='open';`)
           console.log(result.recordset[0])
         res.send(result.recordset[0])
     }
@@ -24,14 +24,12 @@ const Warehouseopen = async (req, res) => {
     const opened_by = req.body.opened_by;
     const awl_person_open = req.body.awl_person_open;
     const remarks = req.body.remarks?req.body.remarks:'';
-     console.log("entry_by",entry_by,"wharehouse",wharehouse,'date',date,"opening_time",opening_time,"opened_by ",opened_by,
-     'awl_person_open ',awl_person_open,'remarks',remarks)
 
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query(`insert into tbl_whopeningclosinglogbook_t (log_no,entry_by,entry_date,
-            wharehouse,date,opening_time ,opened_by ,awl_person_open ,remarks ,msg_flag)
-            values('','${entry_by}',getDate(),'${wharehouse}','${date}','${opening_time}',
+        const result = await sql.query(`insert into tbl_warehouselogs (entry_by,entry_date,
+            warehouse,date,opening_time ,opened_by ,awl_person_open ,remarks ,msg_flag)
+            values('${entry_by}',getDate(),'${wharehouse}','${date}','${opening_time}',
             '${opened_by}','${awl_person_open}','${remarks}','open')`)
         res.send("success")
     }
@@ -46,13 +44,12 @@ const Warehouseclose = async (req, res) => {
     const closed_by = req.body.closed_by;
     const awl_person_close = req.body.awl_person_close;
     const wharehouse = req.body.wharehouse;
-    console.log(date,closing_time,closed_by,awl_person_close,wharehouse)
 
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query(`update tbl_whopeningclosinglogbook_t set closing_time='${closing_time}',
+        const result = await sql.query(`update tbl_warehouselogs set closing_time='${closing_time}',
         closed_by='${closed_by}',awl_person_close='${awl_person_close}',msg_flag='close' 
-        WHERE wharehouse='${wharehouse}' and msg_flag='open' and date='${date}'`)
+        WHERE warehouse='${wharehouse}' and msg_flag='open' and date='${date}'`)
             
         res.send(result)
     }
@@ -64,7 +61,7 @@ const Warehouseclose = async (req, res) => {
 const WarehouseLastclose = async (req, res) => {
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query(`select top 1 * from tbl_whopeningclosinglogbook_t order by sno desc`)       
+        const result = await sql.query(`select top 1 * from tbl_warehouselogs order by sno desc`)       
         res.send(result.recordset[0].date)
     }
     catch (err) {

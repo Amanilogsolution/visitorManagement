@@ -23,7 +23,6 @@ function Visitor() {
 
     const handleClick = async (e) => {
         e.preventDefault();
-
         const visitor_name = document.getElementById('visitor_name').value;
         const company_name = document.getElementById('company_name').value;
         const email_id = document.getElementById('email_id').value;
@@ -32,9 +31,10 @@ function Visitor() {
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
 
-        console.log(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+        console.log(localStorage.getItem('Warehouse'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
 
-        const result = await VisiterEntry(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+        const result = await VisiterEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+        console.log(result)
         if (result) {
             window.location.href = '/Dashboard';
         }

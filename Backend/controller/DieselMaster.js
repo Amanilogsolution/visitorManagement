@@ -2,6 +2,8 @@ const sql =require('mssql')
 const sqlConfig = require('../config.js')
 
 const DieselEntry = async (req, res) => {
+    const entry_by = req.body.entry_by;
+    const warehouse = req.body.warehouse;
     const DATE = req.body.DATE;
     const invoice_no = req.body.invoice_no;
     const party_name = req.body.party_name;
@@ -11,12 +13,13 @@ const DieselEntry = async (req, res) => {
     const out_time = req.body.out_time;
     const in_time = req.body.in_time;
     const TotalAmount = req.body.TotalAmount;
+    console.log(TotalAmount)
 
     try{
         await sql.connect(sqlConfig)
-        const result = await sql.query(`insert into tbl_diesellogbook_T (logno,entry_by ,entry_date ,warehouse,date,invoice_no,
+        const result = await sql.query(`insert into tbl_diesellogs (entry_by ,entry_date ,warehouse,date,invoice_no,
             party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,msgflag,invvalue)
-            values('GGN29','GG02',getDate(),'GGN1','${DATE}','${invoice_no}','${party_name}',${qtyin_liter},${rate_per_liter},'${person_name}','${out_time}','${in_time}','test',${TotalAmount})
+            values('${entry_by}',getDate(),'${warehouse}','${DATE}','${invoice_no}','${party_name}',${qtyin_liter},${rate_per_liter},'${person_name}','${out_time}','${in_time}','1',${TotalAmount})
             `)
         res.send(result)
     }

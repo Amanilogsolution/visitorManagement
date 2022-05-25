@@ -2,6 +2,8 @@ const sql =require('mssql')
 const sqlConfig = require('../config.js')
 
 const GeneratorEntry = async (req, res) => {
+    const entry_by = req.body.entry_by;
+    const warehouse = req.body.warehouse;
     const DATE = req.body.DATE;
     const StartTime =req.body.StartTime;
     const StartReading = req.body.StartReading;
@@ -10,12 +12,13 @@ const GeneratorEntry = async (req, res) => {
     try{
         await sql.connect(sqlConfig)
         const result = await sql.query(`
-        insert into tbl_generatorlogbook_t (logno,entry_by,entry_date,warehouse,date,start_time,start_reading,
-        end_time,end_reading,msgflag) values('DL','modi',getDate(),'GGN','${DATE}','${StartTime}',${StartReading},'${EndTime}',${EndReading},'')`)
+        insert into tbl_generatorlogs (entry_by,entry_date,warehouse,date,start_time,start_reading,
+        end_time,end_reading,msg_flag) values('${entry_by}',getDate(),'${warehouse}','${DATE}','${StartTime}',${StartReading},'${EndTime}',${EndReading},'1')`)
         res.send(result)
     }
     catch(err){
-        res.send(err)
+        // res.send(err)
+        console.log(err)
         }
 }
 

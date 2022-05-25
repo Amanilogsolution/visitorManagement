@@ -14,7 +14,7 @@ function GeneratorLog (){
        const endtime =document.getElementById('endtime').value;
        const endreading =document.getElementById('endreading').value;
 
-       const result = await GeneratorEntry(date,starttime,startreading,endtime,endreading)
+       const result = await GeneratorEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),date,starttime,startreading,endtime,endreading)
        if(result){
         window.location.href='/Dashboard';
        }
