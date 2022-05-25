@@ -23,7 +23,7 @@ const DieselLog = () => {
 
         }
         else {
-            const result = await DieselEntry(DATE, invoice_no, party_name, qtyin_liter, rate_per_liter, person_name, out_time, in_time, TotalAmount)
+            const result = await DieselEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),DATE,invoice_no,party_name,qtyin_liter,rate_per_liter,person_name,out_time,in_time,TotalAmount)
             if (result) {
                 window.location.href = '/Dashboard';
             }

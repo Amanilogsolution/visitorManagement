@@ -1,8 +1,8 @@
 sqlConfig = {
-    user:'sa',
-    password:'BKUPADMIN',
-    database:'NEWAWLDB_T',
-    server:'182.76.62.181',
+    user:'app_dbadmin',
+    password:'#@)#n%^$4?#?$',
+    database:'NEWAWLDB',
+    server:'182.76.62.178',
     options: {
         encrypt: false,
         trustServerCertificate: true,

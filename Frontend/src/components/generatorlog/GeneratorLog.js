@@ -19,7 +19,7 @@ function GeneratorLog() {
             setMandatoryfield(true);
         }
         else {
-            const result = await GeneratorEntry(date, starttime, startreading, endtime, endreading)
+            const result = await GeneratorEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),date,starttime,startreading,endtime,endreading)
             if (result) {
                 window.location.href = '/Dashboard';
             }

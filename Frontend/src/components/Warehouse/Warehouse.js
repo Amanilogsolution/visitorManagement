@@ -14,6 +14,7 @@ function Warehouse() {
             const result = await Warehousecheckopen(localStorage.getItem('warehouseId'))
             if (result) {
                 setWarehouse(true)
+                console.log(result.date)
                 setDate(result.date)
             }
         }

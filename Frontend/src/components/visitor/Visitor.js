@@ -24,7 +24,6 @@ function Visitor() {
 
     const handleClick = async (e) => {
         e.preventDefault();
-
         const visitor_name = document.getElementById('visitor_name').value;
         const company_name = document.getElementById('company_name').value;
         const email_id = document.getElementById('email_id').value;
@@ -38,7 +37,7 @@ function Visitor() {
             setMandatoryfield(true)
         }
         else {
-            const result = await VisiterEntry(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+            const result = await VisiterEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
             if (result) {
                 window.location.href = '/Dashboard';
             }
