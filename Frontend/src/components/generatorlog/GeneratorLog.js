@@ -33,7 +33,7 @@ function GeneratorLog() {
 
                 <div>
                     {/* <div className="row justify-content-center mt-2 mb-5" style={{ width: "100%" }}> */}
-                    <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
+                    <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }} >
                         <div className="card" >
                             <header className="card-header">
                                 <h4 className="card-title mt-2">Generator Log Book Entry</h4>

@@ -1,6 +1,8 @@
+$bgcolor:#000;
+
 .logincontainer{
     height: 100vh;
-    background: #a7e2e1;
+    background: $bgcolor;
 }  
   .user_card {
     height: 400px;
@@ -25,7 +27,7 @@
     width: 170px;
     top: -75px;
     border-radius: 50%;
-    background: #a7e2e1;
+    background: $bgcolor;
     padding: 10px;
     text-align: center;
 
