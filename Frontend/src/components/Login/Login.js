@@ -1,6 +1,6 @@
 import './login.scss'
 import React,{useState} from 'react'
-import Icon from '../../images/security-guard.png'
+import Icon from '../../images/awllogo.png'
 import { UserLogin } from '../../api/index'
 
 function Login() {
@@ -56,8 +56,8 @@ function Login() {
                                         <div className="input-group-append">
                                         {
                                             showpass?
-                                            <span className="input-group-text" onClick={toggleicon}><i className="fa fa-eye-slash text-dark" aria-hidden="true" ></i></span>
-                                            :<span className="input-group-text" onClick={toggleicon}><i className="fa fa-eye text-dark" aria-hidden="true" ></i></span>
+                                            <span className="input-group-text" onClick={toggleicon}><i className="fa fa-eye-slash text-white" aria-hidden="true" ></i></span>
+                                            :<span className="input-group-text" onClick={toggleicon}><i className="fa fa-eye text-white" aria-hidden="true" ></i></span>
 
                                         }</div>
                                     </div>
