@@ -1,25 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../Home';
 import { VisiterEntry, Allemployee } from '../../api/index'
-import Select from "react-select";
 
 function Visitor() {
     const [selectdata, setSelectdata] = useState([]);
     const [mandatoryfield, setMandatoryfield] = useState(false);
-    let option = selectdata.map((ele) => {
-        return { value: ele.uName, label: ele.uName };
-    })
-
-
+    
     useEffect(() => {
         async function fetchMyAPI() {
             const result = await Allemployee(localStorage.getItem("Warehouse"));
-            console.log(result)
             setSelectdata(result)
         }
-
         fetchMyAPI()
-
     }, [])
 
     const handleClick = async (e) => {
@@ -32,7 +24,6 @@ function Visitor() {
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
 
-        console.log(visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
         if (!visitor_name || !company_name || !no_of_visitor || !meeting_with || !contact_no) {
             setMandatoryfield(true)
         }
@@ -43,31 +34,27 @@ function Visitor() {
             }
         }
     }
+
     return (
         <>
             <div className="generatorlogcontainer">
                 <Home />
                 <div>
-                    {/* <div className="row justify-content-center mt-2 mb-5" style={{ width: "100%" }}> */}
                     <div className="col-md-6 mt-5 mb-5" style={{ margin: "auto" }}>
                         <div className="card" >
                             <header className="card-header">
                                 <h4 className="card-title mt-2">Visitor Entry</h4>
                             </header>
-
-
                             <article className="card-body">
                                 <form>
-
                                     <div className="form-group">
                                         <label>Visitor Name </label>
                                         <input type="Text" className="form-control" id='visitor_name' />
-                                    </div> {/* form-group end.// */}
+                                    </div>
                                     <div className="form-group">
                                         <label>Company Name </label>
                                         <input type="text" className="form-control" id="company_name" />
                                     </div>
-
                                     <div className="form-row">
                                         <div className="form-group col-md-6">
                                             <label>No of Visitors</label>
@@ -76,45 +63,26 @@ function Visitor() {
                                         <div className="form-group col-md-6">
                                             <label>Contact No</label>
                                             <input type="number" className="form-control" id='contact_no' />
-
                                         </div>
                                     </div>
-
                                     <div className="form-group">
                                         <label>Email Id:</label>
                                         <input className="form-control" type="email" id='email_id' />
                                     </div>
-
-
                                     <div className="form-group">
                                         <label>To Meet</label>
                                         <select className="form-control" id='meeting_with'>
                                             <option defaultValue hidden>Choose ...</option>
                                         {selectdata.map((ele)=>(
                                             <option>{ele.uName}</option>
-                                        ) )}
+                                            ))}
                                         </select>
-                                        
-
-                                        {/* <Select isMulti name="colors"
-                                            options={option}
-                                            className="basic-multi-select"
-                                            classNamePrefix="select"
-<<<<<<< HEAD
-                                        /> */}
                                         <br/>
-                                        {/* <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' /> */}
-=======
-                                        />
-                                        <br />
-                                        <input className="form-control" type="text" placeholder="Other Employee" id='meeting_with' />
->>>>>>> 1ea24dcc82f7616e9cf2f9bf596f56c2d483d6f5
                                     </div>
                                     <div className="form-group">
                                         <label>Remarks</label>
                                         <textarea className="form-control" type="text" id='remark' />
                                     </div>
-
                                     {
                                         mandatoryfield
                                             ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
@@ -125,14 +93,10 @@ function Visitor() {
                                     </div>
                                 </form>
                             </article>
-
-
                         </div>
                     </div>
-
-                </div></div>
-            {/* </div> */}
-            {/* </div> */}
+                </div>
+            </div>
         </>
     )
 }
