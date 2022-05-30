@@ -28,7 +28,7 @@ function Visitor() {
             setMandatoryfield(true)
         }
         else {
-            const result = await VisiterEntry(localStorage.getItem('userName'),localStorage.getItem('warehouseId'),visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+            const result = await VisiterEntry(localStorage.getItem('userName'), localStorage.getItem('warehouseId'), visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
             if (result) {
                 window.location.href = '/Dashboard';
             }
@@ -62,7 +62,10 @@ function Visitor() {
                                         </div>
                                         <div className="form-group col-md-6">
                                             <label>Contact No</label>
-                                            <input type="number" className="form-control" id='contact_no' />
+                                            <input type="tel" className="form-control" id='contact_no'
+                                             maxLength={10}
+                                            />
+
                                         </div>
                                     </div>
                                     <div className="form-group">
