@@ -1,6 +1,7 @@
 $bgcolor:rgb(232, 237, 237);
 $textcolor:#000;
-$topdivbg:rgb(210, 242, 255);
+$topdivbg:rgb(0, 0, 0);
+$test2:red;
 
 .slidercontainer {
     height: 90%;
@@ -24,6 +25,7 @@ $topdivbg:rgb(210, 242, 255);
             position: absolute;
             right: 6%;
             top: 1%;
+            
         }
 
         .userdetail {
@@ -33,7 +35,7 @@ $topdivbg:rgb(210, 242, 255);
             top: 50%;
             transform: translateY(-50%);
             width: 100%;
-            color: #000;
+            color: $test2;
 
             .name {
                 margin: 0;
@@ -60,9 +62,9 @@ $topdivbg:rgb(210, 242, 255);
             align-items: center;
 
             img {
-                height: 95px;
+                height: 90px;
                 border-radius: 50%;
-                width: 95px;
+                width: 90px;
             }
         }
     }
@@ -145,7 +147,8 @@ $topdivbg:rgb(210, 242, 255);
             .arrow {
                 height: 40px;
                 padding: 0;
-                color: #000;
+                color: $test2;
+
                 background: $topdivbg;
                 display: flex;
                 justify-content: center;
@@ -191,7 +194,7 @@ $topdivbg:rgb(210, 242, 255);
             top: 50%;
             transform: translateY(-50%);
             width: 100%;
-            color: #000;
+            color: $test2;
 
 
             .name {
@@ -219,9 +222,9 @@ $topdivbg:rgb(210, 242, 255);
             align-items: center;
 
             img {
-                height: 95px;
+                height: 90px;
                 border-radius: 50%;
-                width: 95px;
+                width: 90px;
             }
         }
     }
@@ -308,7 +311,7 @@ $topdivbg:rgb(210, 242, 255);
             .arrow {
                 height: 40px;
                 padding: 0;
-                color: #000;
+                color: $test2;
                 background: $topdivbg;
                 display: flex;
                 justify-content: center;

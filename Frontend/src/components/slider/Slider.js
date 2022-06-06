@@ -1,6 +1,6 @@
 import './slider.scss';
 import React, { useState } from 'react';
-import Icon from '../../images/security-guard.png';
+import Icon from '../../images/logo.png';
 import Desiel from '../../images/deisel.png';
 import Generator from '../../images/generator.png';
 import Warehouselogo from '../../images/warehouse.png';
@@ -21,7 +21,7 @@ function Slider({ slider, openSidebar }) {
             <div className={slider ? "slidercontaineropen" : "slidercontainer"}>
                 <div className="closebox">
                     <span onClick={openSidebar}>
-                        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="#000"><path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z" /></svg></span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48" fill="red"><path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z" /></svg></span>
                     <div className="userdetail">
                         <p className="name">
                       
