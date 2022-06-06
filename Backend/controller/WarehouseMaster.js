@@ -3,11 +3,9 @@ const sqlConfig = require('../config.js')
 
 const Warehousecheckopen = async (req, res) => {
     const Warehouse = req.body.Warehouse;
-    console.log("Warehouse", Warehouse)
-
     try {
         await sql.connect(sqlConfig)
-        const result = await sql.query(`SELECT convert(varchar(15),date,121) as date from tbl_warehouselogs where warehouse='${Warehouse}' and msg_flag='open';`)
+        const result = await sql.query(`SELECT convert(varchar(15),date,121) as date from tbl_warehouselogs where warehouse_id='${Warehouse}' and msg_flag='open';`)
           console.log(result.recordset[0])
         res.send(result.recordset[0])
     }
@@ -24,13 +22,13 @@ const Warehouseopen = async (req, res) => {
     const opened_by = req.body.opened_by;
     const awl_person_open = req.body.awl_person_open;
     const remarks = req.body.remarks?req.body.remarks:'';
-
+    const warehouse_id= req.body.warehouse_id;
     try {
         await sql.connect(sqlConfig)
         const result = await sql.query(`insert into tbl_warehouselogs (entry_by,entry_date,
-            warehouse,date,opening_time ,opened_by ,awl_person_open ,remarks ,msg_flag)
+            warehouse,date,opening_time ,opened_by ,awl_person_open ,remarks ,msg_flag,warehouse_id)
             values('${entry_by}',getDate(),'${wharehouse}','${date}','${opening_time}',
-            '${opened_by}','${awl_person_open}','${remarks}','open')`)
+            '${opened_by}','${awl_person_open}','${remarks}','open','${warehouse_id}')`)
         res.send("success")
     }
     catch (err) {
@@ -44,12 +42,11 @@ const Warehouseclose = async (req, res) => {
     const closed_by = req.body.closed_by;
     const awl_person_close = req.body.awl_person_close;
     const wharehouse = req.body.wharehouse;
-
     try {
         await sql.connect(sqlConfig)
         const result = await sql.query(`update tbl_warehouselogs set closing_time='${closing_time}',
         closed_by='${closed_by}',awl_person_close='${awl_person_close}',msg_flag='close' 
-        WHERE warehouse='${wharehouse}' and msg_flag='open' and date='${date}'`)
+        WHERE warehouse_id='${wharehouse}' and msg_flag='open' and date='${date}'`)
             
         res.send(result)
     }

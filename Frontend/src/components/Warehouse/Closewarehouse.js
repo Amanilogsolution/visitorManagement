@@ -20,9 +20,10 @@ function Closewarehouse(prop) {
 
         } 
         else {
-            console.log(prop.date, Closingtime, Closeby, awlperson)
+         
             const result = await Warehouseclose(prop.date, Closingtime, Closeby, awlperson, localStorage.getItem('warehouseId'))
             if (result) {
+                alert("Warehouse is Closed")
                 window.location.href = '/Dashboard';
             }
         }

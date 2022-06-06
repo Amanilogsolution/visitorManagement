@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import Home from '../Home';
-import { VisiterEntry, Allemployee } from '../../api/index'
+import { VisiterEntry, Allemployee,Sms,EmployeeAlerts } from '../../api/index'
 
 function Visitor() {
     const [selectdata, setSelectdata] = useState([]);
     const [mandatoryfield, setMandatoryfield] = useState(false);
+  const [number,setNumber] = useState()
+    const [meeting_with,setMeetingWith] = useState('');
+    
     
     useEffect(() => {
         async function fetchMyAPI() {
-            const result = await Allemployee(localStorage.getItem("Warehouse"));
+            const result = await Allemployee(localStorage.getItem("warehouseId"));
+       
             setSelectdata(result)
         }
         fetchMyAPI()
@@ -20,18 +24,47 @@ function Visitor() {
         const company_name = document.getElementById('company_name').value;
         const email_id = document.getElementById('email_id').value;
         const no_of_visitor = document.getElementById('no_of_visitor').value;
-        const meeting_with = document.getElementById('meeting_with').value;
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
 
-        if (!visitor_name || !company_name || !no_of_visitor || !meeting_with || !contact_no) {
+        console.log(number,visitor_name,company_name)
+        const sms = await Sms(number,visitor_name,company_name)
+        console.log(sms)
+
+        if (!visitor_name || !company_name || !no_of_visitor  || !contact_no) {
             setMandatoryfield(true)
         }
         else {
             const result = await VisiterEntry(localStorage.getItem('userName'), localStorage.getItem('warehouseId'), visitor_name, company_name, email_id, no_of_visitor, meeting_with, contact_no, remark)
+        
+
             if (result) {
+
+                alert("Entry Done Successfully")
                 window.location.href = '/Dashboard';
             }
+       
+        }
+        
+      
+
+    }
+    const handleChange = async(e) => {
+        const name =e.target.value;
+        setMeetingWith(name)
+     
+
+        const details = await EmployeeAlerts(localStorage.getItem('warehouseId'),name)
+        const number = details.PERSMOBILE
+      
+        if(number.length === 10){
+    
+            setNumber(number)
+        }else{
+            const str = number.toString()
+          const concatinate = str.slice(str.length-10)
+          setNumber(concatinate)
+  
         }
     }
 
@@ -74,10 +107,10 @@ function Visitor() {
                                     </div>
                                     <div className="form-group">
                                         <label>To Meet</label>
-                                        <select className="form-control" id='meeting_with'>
+                                        <select className="form-control" id='meeting_with' onChange={handleChange}>
                                             <option defaultValue hidden>Choose ...</option>
                                         {selectdata.map((ele)=>(
-                                            <option>{ele.uName}</option>
+                                            <option key={ele.UserID} value={ele.UserID}>{ele.Name}</option>
                                             ))}
                                         </select>
                                         <br/>
