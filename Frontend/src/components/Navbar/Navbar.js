@@ -23,6 +23,9 @@ function Navbar({ openSidebar }) {
                         <li className="nav-item navlink ">
                             <a className="nav-link" href="VisitorLogBook">Visitor Entry</a>
                         </li>
+                        <li className="nav-item navlink ">
+                            <a className="nav-link" href="Vehicle">Vehicle Entry</a>
+                        </li>
                         <li className="nav-item dropdown navlink">
                             <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 LogBook

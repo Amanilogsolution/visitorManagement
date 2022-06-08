@@ -51,6 +51,12 @@ export const EmployeeAlerts = async (Warehouse,UserID) =>{
     return axios.post(url,{Warehouse,UserID}).then(response => response.data).catch(error => console.log(error));
 }
 
+export const VehicleEntry = async (docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode) =>{
+    console.log(docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode)
+    const url = `http://localhost:8004/api/vehicleentry`
+    return axios.post(url,{docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode}).then(response => response.data).catch(error => console.log(error));
+}
+
 
 // export const Sms = async (number,visitor_name,company_name) => {
 //     console.log('ApI',number,visitor_name,company_name)
