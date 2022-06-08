@@ -9,7 +9,7 @@ function Openwarehouse() {
 
     useEffect(() => {
         const data = async () => {
-            const result = await warehouseLastclose()
+            const result = await warehouseLastclose(localStorage.getItem('warehouseId'))
             const date = new Date(result)
             let format_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
 

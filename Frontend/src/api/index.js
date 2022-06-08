@@ -40,9 +40,9 @@ export const Warehouseclose = async (date,closing_time,closed_by,awl_person_clos
     return axios.post(url,{date,closing_time,closed_by,awl_person_close,wharehouse}).then(response => response.data).catch(error => console.log(error));
 }
 
-export const warehouseLastclose = async () =>{
+export const warehouseLastclose = async (Warehouse) =>{
     const url = `http://182.76.62.178:8110/api/warehouseLastclose`
-    return axios.get(url).then(response => response.data).catch(error => console.log(error));
+    return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
 }
 
 export const EmployeeAlerts = async (Warehouse,UserID) =>{
@@ -51,10 +51,16 @@ export const EmployeeAlerts = async (Warehouse,UserID) =>{
     return axios.post(url,{Warehouse,UserID}).then(response => response.data).catch(error => console.log(error));
 }
 
-
-export const Sms = async (number,visitor_name,company_name) => {
-    console.log('ApI',number,visitor_name,company_name)
-    const text =  `${visitor_name} from ${company_name} Came to Meet you`;
-    const url = `http://192.168.146.19:3000/91${number}/sendText/`
-    return axios.post(url, {text}).then(response => response.data).catch(error => console.log(error));
+export const VehicleEntry = async (docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode) =>{
+    console.log(docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode)
+    const url = `http://localhost:8004/api/vehicleentry`
+    return axios.post(url,{docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode}).then(response => response.data).catch(error => console.log(error));
 }
+
+
+// export const Sms = async (number,visitor_name,company_name) => {
+//     console.log('ApI',number,visitor_name,company_name)
+//     const text =  `${visitor_name} from ${company_name} Came to Meet you`;
+//     const url = `http://192.168.146.19:3000/91${number}/sendText/`
+//     return axios.post(url, {text}).then(response => response.data).catch(error => console.log(error));
+// }

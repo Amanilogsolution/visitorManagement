@@ -27,9 +27,7 @@ function Visitor() {
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
 
-        console.log(number,visitor_name,company_name)
-        const sms = await Sms(number,visitor_name,company_name)
-        console.log(sms)
+        // const sms = await Sms(number,visitor_name,company_name)
 
         if (!visitor_name || !company_name || !no_of_visitor  || !contact_no) {
             setMandatoryfield(true)
@@ -53,7 +51,6 @@ function Visitor() {
         const name =e.target.value;
         setMeetingWith(name)
      
-
         const details = await EmployeeAlerts(localStorage.getItem('warehouseId'),name)
         const number = details.PERSMOBILE
       
