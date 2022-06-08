@@ -53,7 +53,7 @@ export const EmployeeAlerts = async (Warehouse,UserID) =>{
 
 export const VehicleEntry = async (docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode) =>{
     console.log(docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode)
-    const url = `http://localhost:8004/api/vehicleentry`
+    const url = `http://182.76.62.178:8110/api/vehicleentry`
     return axios.post(url,{docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode}).then(response => response.data).catch(error => console.log(error));
 }
 
