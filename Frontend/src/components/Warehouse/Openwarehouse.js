@@ -3,8 +3,7 @@ import { Warehouseopen, warehouseLastclose } from '../../api/index'
 
 
 function Openwarehouse() {
-
-    const [last_date, setLastDate] = useState()
+    const [last_date, setLastDate] = useState('');
     const [mandatoryfield, setMandatoryfield] = useState(false);
 
 
@@ -13,7 +12,12 @@ function Openwarehouse() {
             const result = await warehouseLastclose()
             const date = new Date(result)
             let format_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
-            setLastDate(format_date)
+
+            if(result.length === undefined) {
+            setLastDate("YYY-MM-DD")
+            }else{
+                setLastDate(format_date)
+            }
         }
         data()
     }, [])
@@ -21,7 +25,7 @@ function Openwarehouse() {
     const handlesave = async (e) => {
         e.preventDefault();
         const entry_by = localStorage.getItem('userId');
-        const wharehouse = localStorage.getItem('warehouseId');
+        const wharehouse = localStorage.getItem('Warehouse');
         const date = document.getElementById('date').value;
         const opening_time = document.getElementById('Openingtime').value;
         const opened_by = document.getElementById('Openby').value;
@@ -32,8 +36,9 @@ function Openwarehouse() {
 
         }
         else {
-            const result = await Warehouseopen(entry_by, wharehouse, date, opening_time, opened_by, awl_person_open)
+            const result = await Warehouseopen(entry_by, wharehouse, date, opening_time, opened_by, awl_person_open,localStorage.getItem('warehouseId'))
             if (result) {
+                alert("Warehouse is Opened")
                 window.location.href = '/Dashboard';
             }
         }

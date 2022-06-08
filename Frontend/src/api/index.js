@@ -30,9 +30,9 @@ export const Warehousecheckopen = async (Warehouse) =>{
     return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
 }
 
-export const Warehouseopen = async (entry_by,wharehouse,date,opening_time,opened_by,awl_person_open) =>{
+export const Warehouseopen = async (entry_by,wharehouse,date,opening_time,opened_by,awl_person_open,warehouse_id) =>{
     const url = `http://182.76.62.178:8110/api/warehouseopen`
-    return axios.post(url,{entry_by,wharehouse,date,opening_time,opened_by,awl_person_open}).then(response => response.data).catch(error => console.log(error));
+    return axios.post(url,{entry_by,wharehouse,date,opening_time,opened_by,awl_person_open,warehouse_id}).then(response => response.data).catch(error => console.log(error));
 }
 
 export const Warehouseclose = async (date,closing_time,closed_by,awl_person_close,wharehouse) =>{
@@ -43,4 +43,18 @@ export const Warehouseclose = async (date,closing_time,closed_by,awl_person_clos
 export const warehouseLastclose = async () =>{
     const url = `http://182.76.62.178:8110/api/warehouseLastclose`
     return axios.get(url).then(response => response.data).catch(error => console.log(error));
+}
+
+export const EmployeeAlerts = async (Warehouse,UserID) =>{
+    console.log(Warehouse,UserID)
+    const url = `http://182.76.62.178:8110/api/employeeDetails`
+    return axios.post(url,{Warehouse,UserID}).then(response => response.data).catch(error => console.log(error));
+}
+
+
+export const Sms = async (number,visitor_name,company_name) => {
+    console.log('ApI',number,visitor_name,company_name)
+    const text =  `${visitor_name} from ${company_name} Came to Meet you`;
+    const url = `http://192.168.146.19:3000/91${number}/sendText/`
+    return axios.post(url, {text}).then(response => response.data).catch(error => console.log(error));
 }
