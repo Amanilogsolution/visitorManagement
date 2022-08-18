@@ -1,15 +1,19 @@
 import React, { useState } from 'react'
-import { Warehouseclose } from '../../api'
+import { Warehouseclose,UploadData } from '../../api'
 
 
 
 function Closewarehouse(prop) {
     const [mandatoryfield, setMandatoryfield] = useState(false);
+    const [file, setFile] = useState('')
+    const [uploadimage,setUploadImage] = useState()
+
 
     const date = new Date(prop.date)
     let format_date = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear()
 
     const handleClick = async (e) => {
+        document.getElementById('submitBtn').disabled=true;
         e.preventDefault()
         const Closingtime = document.getElementById('Closingtime').value
         const Closeby = document.getElementById('Closeby').value
@@ -20,18 +24,37 @@ function Closewarehouse(prop) {
 
         } 
         else {
-         
-            const result = await Warehouseclose(prop.date, Closingtime, Closeby, awlperson, localStorage.getItem('warehouseId'))
-            if (result) {
-                alert("Warehouse is Closed")
-                window.location.href = '/Dashboard';
+            // console.log(uploadimage)
+
+            if(uploadimage){
+                // alert('You have Upload Image !!')
+                const result = await Warehouseclose(prop.date, Closingtime, Closeby, awlperson, localStorage.getItem('warehouseId'),uploadimage)
+                if (result) {
+                    alert("Warehouse is Closed")
+                    window.location.href = '/Dashboard';
+                }
             }
+            else{
+                alert('You have not Upload Image')
+                const result = await Warehouseclose(prop.date, Closingtime, Closeby, awlperson, localStorage.getItem('warehouseId'),'')
+                if (result) {
+                    alert("Warehouse is Closed")
+                    window.location.href = '/Dashboard';
+                }
+
+            }
+         
+       
         }
-
-
-
-
     }
+    const handleSendFile = async (e) => {
+        e.preventDefault()
+        const data = new FormData();
+        data.append("images", file)
+        const UploadLink = await UploadData(data)
+        setUploadImage(UploadLink)
+      }
+    
 
     return (
         <>
@@ -73,21 +96,48 @@ function Closewarehouse(prop) {
 
                                     {
                                         mandatoryfield
-                                            ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
+                                            ? <p style={{ color: "red" }}>Please! fill the field Or Upload Image... </p> : null
                                     }
 
                                     <div className="form-group">
-                                        <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
+                                        <button type="submit" id="submitBtn" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
                                         <input type="reset" className="btn btn-secondary " value='Reset' />
-
+                                        <button className="btn btn-success ml-4" onClick={(e) => { e.preventDefault() }} data-toggle="modal" data-target="#exampleModal">Upload Image</button>
                                     </div>
                                 </form>
                             </article>
-
-
                         </div>
+                    </div></div>
+      <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Upload Image</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">×</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <div className="form-row">
+                  <label className="col-sm-4 col-form-label">
+                    Close Image
+                  </label>
+                  <input type="file" className="" placeholder="" onChange={event => {
+                    const document = event.target.files[0];
+                    setFile(document)
+                  }} accept=".jpg, .jpeg, .png,.svg" />
 
-                    </div></div></div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" onClick={handleSendFile} data-dismiss="modal" className="btn btn-primary">Upload</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
         </>
     )
 }

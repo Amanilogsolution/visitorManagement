@@ -5,9 +5,9 @@ import {VehicleEntry} from  '../../api/index';
 function Vehicle() {
 
     const [mandatoryfield, setMandatoryfield] = useState(false);
-
     const handleClick = async (e) => {
         e.preventDefault();
+        document.getElementById('submitBtn').disabled = true
         const EntryType = document.getElementById('entry_type').value;
         const Document_no = document.getElementById('Document_no').value;
         const PartyName = document.getElementById('party_name').value;
@@ -16,25 +16,17 @@ function Vehicle() {
         const driver_name = document.getElementById('driver_name').value;
         const contact_no = document.getElementById('contact_no').value;
         const remark = document.getElementById('remark').value;
-
-        console.log(EntryType, Document_no, PartyName, Vehicle_no, vehicle_type, driver_name, contact_no, remark)
   
         if (!EntryType || !PartyName || !Vehicle_no  || !vehicle_type || !driver_name || !contact_no) {
             setMandatoryfield(true)
         }
         else {
             const result = await VehicleEntry(Document_no, Vehicle_no, vehicle_type, driver_name, contact_no, remark,localStorage.getItem('warehouseId'),PartyName,localStorage.getItem('userName'),EntryType)
-        
-
             if (result) {
-
                 alert("Entry Done Successfully")
                 window.location.href = '/Dashboard';
             }
-       
         }
-
-
     }
   return (
     <>
@@ -55,8 +47,8 @@ function Vehicle() {
                                     <option value="IN">IN</option>      
                                     <option value="OUT">OUT</option>
                                 </select>                          
-                                  </div>
-                                  <div className="form-group">
+                            </div>
+                            <div className="form-group">
                                 <label>Document Number </label>
                                 <input type="text" className="form-control" id="Document_no" />
                             </div>
@@ -66,16 +58,14 @@ function Vehicle() {
                             </div>
                             
                             <div className="form-row">
-                            <div className="form-group col-md-6">
+                               <div className="form-group col-md-6">
                                     <label>Vehicle Number </label>
                                     <input type="text" className="form-control" id='vehicle_no' />
                                 </div>
                                 
-
                                 <div className="form-group col-md-6">
                                 <label>Vehicle Type :</label>
                                 <select className="form-control" id='vehicle_type' >
-                                
                                     <option defaultValue hidden>Choose ...</option>
                                     <option value="14 Ft">14 Ft</option>
                                     <option value="17 Ft">17 Ft</option>
@@ -107,7 +97,6 @@ function Vehicle() {
                                     <option value="TATA 608">TATA 608</option>
                                     <option value="TATA ACE">TATA ACE</option>
                                     <option value="TAXI">TAXI</option>
-
                                 </select>
                                 <br/>
                             </div>
@@ -135,9 +124,7 @@ function Vehicle() {
                                     ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
                             }
                             <div className="form-group">
-                                <button type="submit" 
-                                onClick={handleClick} 
-                                className="btn btn-primary mr-4">Submit</button>
+                                <button type="submit" id="submitBtn" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
                                 <button type="submit" className="btn btn-secondary ">Reset</button>
                             </div>
                         </form>

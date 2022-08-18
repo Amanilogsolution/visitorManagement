@@ -21,27 +21,27 @@ export const Allemployee = async (Warehouse) =>{
 }
 
 export const UserLogin = async (uid_id,uid_pass) => {
-    const url = `http://182.76.62.178:8110/api/loginuser`
+    const url = `http://localhost:8004/api/loginuser`
     return axios.post(url, {uid_id,uid_pass}).then(response => response.data).catch(error => console.log(error));
 }
 
 export const Warehousecheckopen = async (Warehouse) =>{
-    const url = `http://182.76.62.178:8110/api/warehousecheckopen`
+    const url = `http://localhost:8004/api/warehousecheckopen`
     return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
 }
 
-export const Warehouseopen = async (entry_by,wharehouse,date,opening_time,opened_by,awl_person_open,warehouse_id) =>{
-    const url = `http://182.76.62.178:8110/api/warehouseopen`
-    return axios.post(url,{entry_by,wharehouse,date,opening_time,opened_by,awl_person_open,warehouse_id}).then(response => response.data).catch(error => console.log(error));
+export const Warehouseopen = async (entry_by,wharehouse,date,opening_time,opened_by,awl_person_open,warehouse_id,uploadimage) =>{
+    const url = `http://localhost:8004/api/warehouseopen`
+    return axios.post(url,{entry_by,wharehouse,date,opening_time,opened_by,awl_person_open,warehouse_id,uploadimage}).then(response => response.data).catch(error => console.log(error));
 }
 
-export const Warehouseclose = async (date,closing_time,closed_by,awl_person_close,wharehouse) =>{
-    const url = `http://182.76.62.178:8110/api/warehouseclose`
-    return axios.post(url,{date,closing_time,closed_by,awl_person_close,wharehouse}).then(response => response.data).catch(error => console.log(error));
+export const Warehouseclose = async (date,closing_time,closed_by,awl_person_close,wharehouse,uploadimage) =>{
+    const url = `http://localhost:8004/api/warehouseclose`
+    return axios.post(url,{date,closing_time,closed_by,awl_person_close,wharehouse,uploadimage}).then(response => response.data).catch(error => console.log(error));
 }
 
 export const warehouseLastclose = async (Warehouse) =>{
-    const url = `http://182.76.62.178:8110/api/warehouseLastclose`
+    const url = `http://localhost:8004/api/warehouseLastclose`
     return axios.post(url,{Warehouse}).then(response => response.data).catch(error => console.log(error));
 }
 
@@ -55,6 +55,11 @@ export const VehicleEntry = async (docNo,vehNo,vehType,driverName,contactNo,rema
     console.log(docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode)
     const url = `http://182.76.62.178:8110/api/vehicleentry`
     return axios.post(url,{docNo,vehNo,vehType,driverName,contactNo,remarks,wh,cust,entry_by,tpt_mode}).then(response => response.data).catch(error => console.log(error));
+}
+
+export const UploadData = async (data) => {
+    const url = `http://localhost:3008/api/FileUpload`
+    return axios.post(url, data).then(res => res.data).catch(err => console.log(err))
 }
 
 

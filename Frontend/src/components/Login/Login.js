@@ -14,13 +14,14 @@ function Login() {
         e.preventDefault();
         const username = document.getElementById('username').value
         const password = document.getElementById('password').value
-        console.log(username, password)
         const result = await UserLogin(username, password)
-        if (result) {
-            localStorage.setItem('userId', result.uid_id)
-            localStorage.setItem('userName', result.uname)
-            localStorage.setItem('Warehouse', result.wh)
-            localStorage.setItem('warehouseId', result.whid)
+        console.log(result)
+        if (result.result === username.toUpperCase()) {
+            console.log("Hello")
+            localStorage.setItem('userId', result.result)
+            localStorage.setItem('userName', result.result2)
+            localStorage.setItem('Warehouse', result.result3)
+            localStorage.setItem('warehouseId', result.result4)
             window.location.href = '/Dashboard';
         }
         else{

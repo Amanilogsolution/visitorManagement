@@ -7,7 +7,7 @@ const DieselLog = () => {
 
     const handleClick = async (e) => {
         e.preventDefault();
-
+        document.getElementById('submitBtn').disabled = true;
         const DATE = document.getElementById('date').value;
         const invoice_no = document.getElementById('invoice_no').value;
         const party_name = document.getElementById('party_name').value;
@@ -96,7 +96,7 @@ const DieselLog = () => {
                                             ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
                                     }
                                     <div className="form-group">
-                                        <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
+                                        <button type="submit" onClick={handleClick} id="submitBtn" className="btn btn-primary mr-4">Submit</button>
                                         <input type="reset" className="btn btn-secondary " value='Reset' />                                                                           </div> {/* form-group// */}
                                 </form>
                             </article> {/* card-body end .// */}

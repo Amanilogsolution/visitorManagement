@@ -9,7 +9,7 @@ function GeneratorLog() {
 
     const handleClick = async (e) => {
         e.preventDefault();
-
+        document.getElementById('submitBtn').disabled = true;
         const date = document.getElementById('date').value;
         const starttime = document.getElementById('starttime').value;
         const startreading = document.getElementById('startreading').value;
@@ -88,7 +88,7 @@ function GeneratorLog() {
                                             ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
                                     }
                                     <div className="form-group">
-                                        <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
+                                        <button type="submit" onClick={handleClick} id="submitBtn" className="btn btn-primary mr-4">Submit</button>
                                         <input type="reset" className="btn btn-secondary " value='Reset' />
                                     </div>
                                 </form>

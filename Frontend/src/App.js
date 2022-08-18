@@ -6,22 +6,22 @@ import GeneratorLogBook from './components/generatorlog/GeneratorLog';
 import Visitor from './components/visitor/Visitor'
 import Warehouse from './components/Warehouse/Warehouse'
 import Vehicle from './components/vehicle/vehicle';
-import {Route,Routes,BrowserRouter as Router} from 'react-router-dom'
+import PrivatRoute from './components/PrivateRoute/PrivateRoute';
+
+import {Route,Switch,BrowserRouter as Router} from 'react-router-dom'
 function App() {
   return (
     <div className="App">
-     {/* <Home /> */}
      <Router>
-     <Routes>
-         <Route exact path="/" element={<Login />}/>
-         <Route exact path="/Dashboard" element={<Dashboard/>}/>
-         <Route exact path="/DieselLog" element={<DieselLog/>}/>
-         <Route exact path="/GeneratorLogBook" element={<GeneratorLogBook/>}/>
-         <Route exact path="/VisitorLogBook" element={<Visitor/>}/>
-         <Route exact path="/Warehouse" element={<Warehouse/>}/>
-         <Route exact path="/Vehicle" element={<Vehicle/>}/>
-
-     </Routes>
+     <Switch>
+         <Route exact path="/" component={Login}/>
+         <PrivatRoute exact path="/Dashboard" component={Dashboard}/>
+         <PrivatRoute exact path="/DieselLog" component={DieselLog}/>
+         <PrivatRoute exact path="/GeneratorLogBook" component={GeneratorLogBook}/>
+         <PrivatRoute exact path="/VisitorLogBook" component={Visitor}/>
+         <PrivatRoute exact path="/Warehouse" component={Warehouse}/>
+         <PrivatRoute exact path="/Vehicle" component={Vehicle}/>
+     </Switch>
      </Router>
 
     </div>

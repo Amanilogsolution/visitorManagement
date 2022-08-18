@@ -19,6 +19,8 @@ function Visitor() {
     }, [])
 
     const handleClick = async (e) => {
+        document.getElementById('submitBtn').disabled = true
+
         e.preventDefault();
         const visitor_name = document.getElementById('visitor_name').value;
         const company_name = document.getElementById('company_name').value;
@@ -42,20 +44,17 @@ function Visitor() {
                 window.location.href = '/Dashboard';
             }
        
-        }
-        
-      
+        }   
 
     }
+
     const handleChange = async(e) => {
         const name =e.target.value;
         setMeetingWith(name)
-     
         const details = await EmployeeAlerts(localStorage.getItem('warehouseId'),name)
         const number = details.PERSMOBILE
       
         if(number.length === 10){
-    
             setNumber(number)
         }else{
             const str = number.toString()
@@ -66,7 +65,7 @@ function Visitor() {
     }
 
     return (
-        <>
+         <>
             <div className="generatorlogcontainer">
                 <Home />
                 <div>
@@ -93,9 +92,7 @@ function Visitor() {
                                         <div className="form-group col-md-6">
                                             <label>Contact No</label>
                                             <input type="tel" className="form-control" id='contact_no'
-                                             maxLength={10}
-                                            />
-
+                                             maxLength={10}/>
                                         </div>
                                     </div>
                                     <div className="form-group">
@@ -121,7 +118,7 @@ function Visitor() {
                                             ? <p style={{ color: "red" }}>Please! fill the field...</p> : null
                                     }
                                     <div className="form-group">
-                                        <button type="submit" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
+                                        <button type="submit" id="submitBtn" onClick={handleClick} className="btn btn-primary mr-4">Submit</button>
                                         <button type="submit" className="btn btn-secondary ">Reset</button>
                                     </div>
                                 </form>
